@@ -1,17 +1,5 @@
-%
-%-----------------------------------------------------------
-%% Computer Music Journal LaTeX template
-%%
-%% September  2009
-%% Author: Cornelia Kreutzer, University of Limerick
-
-
-
-%---Document preamble
-%
+%% preparando já para gerar PDF
 \documentclass[letterpaper, 12pt]{article}
-
-
 \usepackage{cmjStyle} %use CMJ style
 \usepackage{natbib} %natbib package, necessary for customized cmj BibTeX style
 \bibpunct{(}{)}{;}{a}{}{,} %adapt style of references in text
@@ -22,151 +10,225 @@
 \parindent 24pt
 \urlstyle{same} % make url tags have the same font
 \setcounter{secnumdepth}{-1} % remove section numbering
-
 %% The package endfloat moves all floats (figures, tables...) to the end of the paper, as required for the final version of a CMJ paper.
 %% Leave this package commented out for initial submission, but uncomment it for final version. 
 % \usepackage{endfloat}
-
 %---Document----------
 \begin{document}
 
-{\cmjTitle Vivace: A Live Coding Language on Web}
-\vspace*{24pt}
-
 % (In the initial submission, omit all the following author information to ensure anonymity during peer review.)
-
 %% %author - name
-%% {\cmjAuthor Vilson Vieira, Renato Fabbri}
+%% {\cmjAuthor Vilson Vieira, Renato Fabbri, Guilherme Lunhani, Geraldo Magela}
 %% %author - address
 %% \newline
 %% \begin{cmjAuthorAddress}
-%% 	Instituto de Física de São Carlos\\
-%% 	Universidade de São Paulo\\
-%% 	1234 Anywhere Street\\
-%% 	Anywhere, Anwhere 012345 USA\\
-%% 	vilson@void.cc, renato.fabbri@gmail.com
+%%     Instituto de Física de São Carlos\\
+%%     Universidade de São Paulo\\
+%%     1234 Anywhere Street\\
+%%     Anywhere, Anwhere 012345 USA\\
+%%     vilson@void.cc, renato.fabbri@gmail.com, gcravista@gmail.com, gera.sp@gmail.com
 %% \end{cmjAuthorAddress}
 
 \vspace*{24pt}
-%{\cmjAuthorPhone << AUTHOR TELEPHONE (not for publication): +44 999 999 9999 >>}
+%{\cmjAuthorPhone << AUTHOR TELEPHONE (not for publication): +55 16 8108 7007 >>}
 \vspace*{24pt}
-
+ {\cmjTitle Vivace: A Collaborative Live Coding Language}
 \section*{Abstract}
-
-We describe how the practices with live coding sessions in Brazil
-motivated the creation of an entire environment for live coding on Web
-browsers.
-
-\section*{}
-
-%% Insert introductory body text here, without a heading.  For style
-%% questions not answered here, visit http://mitpress.mit.edu/cmj to see
-%% the submission guidelines and previously published articles.  Most
-%% issues include a freely downloadable feature article.  Questions may
-%% be directed to cmj@mitpress.mit.edu; please put [CMJ MS] in the
-%% subject line.
-
-Start by describing the live coding sessions we already played in
-Brazil as FooBarBaz (contato, faap, tranzmidia?). On those sessions we
-identified a ``patern language'' (similar to ixi lang), mnemonic
-operations (for patterns manipulation), easy audio mixing (originally
-did in Pd), fast key strokes on editors (vim/emacs), and a way to
-combine audio and video, as good practices on live coding.
-
-Based on those elements we designed a language. And motivated by
-a need for collaboration and easy access to the language, we used
-the web (web audio api and sharejs).
-
-So, in summary, lets describe:
-
+In this paper we describe the design and principles behind Vivace, a live coding language built on Web. We start by reviewing what motivated and inspired the creation of the language, its specification and how it is parsed and executed using the recently created Web Audio API. We discuss why the Web is an interesting environment to collaborative live coding and how it affected the performances. We conclude previewing how Vivace is motivating the creation of other live coding languages and new artistic genres.
+\section*{} % Introdução, sem título.
+In November of 2011 a live coding trio called FooBarBaz performed its first presentation for a wide audience. We believe that this presentation was the first live coding performance in Brazil as well. An audience of about 5000 attendees was introduced to an alternative audiovisual performance where code was used to create the music they were listening.
+During the performance, the trio used basically ChucK but in an uncommon way. Instead of writing loops and conditionals they manipulated audio parameters of audio samples files by editing lists of sequences. Mnemonic operations (e.g. reverse, retrograde, transposition) were used on those sequences and together with easy audio mixing (originally did in Puredata) and fast code skeletons inserted by Vim and Emacs editors, revealed as good practices to live code during the performance.
+Based on those elements we designed a new language to be used on the subsequent sessions: Vivace. We wanted to avoid software configuration and make easy to share the session with everyone. In this way, the Web was choosen as the running environment for Vivace.
+In summary, this paper describe:
 \begin{enumerate}
-  \item the sessions on contato, faap, ... (motivation, inspired by
-    ixilang, chuck, ...)
-  \item the language (jison parsing a context-free grammar, DSL)
-  \item the audio engine (web audio api, why web?, scriptable daw)
-  \item the collaborative behavior (sharejs and web)
-  \item the environment (the whole thing + GUI)
+  \item good artistic practices identified for live coding
+  \item the language (Jison parsing a context-free grammar, DSL)
+  \item the audio engine (Web Audio api, Why web?)
+  \item the collaborative behavior (ShareJS and Web)
+  \item the environment (the whole system + GUI)
   \item the uses and future work (easy input for broad audience using
     the pad without breaking the session, a language focused on live
-    cinema, OSC/MIDI/web cam)
+    cinema, OSC/MIDI/web cam, 'freak coding' as live coding subgenre)
 \end{enumerate}
-
 \parskip 18pt
-
-%------------------------------------------------
+\section{Motivation \& Inspiration: Arrange the room, the code is dirty}
+    Vivace-lang (REF) is - because write complex things take us some time to type -  a collaborative livecoding  with use of extreme simple language sintax, mnemonic actions, easy mixing and template editing. In our experiences, the use of a shared code, sounds and images leads a more complex experience,  thus greater the possibility of inconsistency (of compiled code as well actions on artistic result), leading us to discriminate specific language syntaxes. In this sense, we call the concept 
+    Votação:
+    -"code less, do more" (REF), as raised by Thor M. with ixilang (REF). With 
+    -?
+\section{The Language}
+Vivace is written in JavaScript to benefits of Web technologies. Here is interesting to question the use of computer languages to describe artistic actions...
+% aqui um artigo que podemos usar como base, foi publicado no CMJ:
+% http://www.mitpressjournals.org/doi/pdf/10.1162/comj.2009.33.1.19
+% aqui tem um do thor magnunson (autor do ixi lang) explicando ixi lang:
+% http://www.ixi-software.net/thor/ixi_lang.pdf
+% esse também é muito bom:
+% http://www.ixi-software.net/thor/Magnusson_Leonardo11.pdf
+% outros artigos dele aqui:
+% http://www.ixi-audio.net/thor/
+% É uma linguagem de domínio específico.
+% Usa Jison, uma biblioteca em JavaScript, para converter comandos na linguagem Vivace % comandos que manipulam a Audio Engine.
+% Apontar que essa flexibilidade de avaliação de código em tempo real abre grandes oportunidades para a criação de outras linguagens de domínio específico para computação musical (e demais áreas) em browsers.
+%Descrever a linguagem: https://github.com/automata/vivace/wiki/Language-spec
+%Descriptive Language: http://www.greengonzo.com/dictionary/Descreptive.html
+%of, or relating to description
+%(grammar) of an adjective, stating an attribute of the associated noun (as heavy in the %heavy dictionary)
+%(linguistics) describing the structure, grammar, vocabulary and actual use of a language
+%- The Nuttall Encyclopedia
+%De*scrip"tive (?), a. [L. descriptivus: cf. F. descriptif.] Tending to describe; having the quality %of representing; containing description; as, a descriptive figure; a descriptivephrase; a %descriptive narration; a story descriptive of the age.
 %
-% format for Heading-A style
-\section{Format for Heading-A Style; Use This for Major Section Headings}
-
-Insert body text here.  Note that CMJ does not use section numbers for any level of heading.
-
-\vspace*{24pt}
-
-% format for Heading-B style
-\subsection{Format for Heading-B Style; Use This for Subsection Headings}
-
-Insert body text here.  
-
-% format for Heading-C style
-\subsubsection{Format for Heading-C Style; Use This for Minor Sub-subsection Headings}
-
-Insert body text here.
-
-In the initial manuscript submission, you are encouraged to include figures (with captions) inline with the text, for ease of reading during the review process. For example, like this:
-
-% include figures in text with captions for initial submission, like this:
-\begin{figure}[htpb]
-\begin{center}
-\includegraphics{myFigure.pdf}
-\caption{Insert Figure caption here.}
-\label{fig:myFigure}
-\end{center}
-\end{figure}
-
-However, for the final version after the manuscript has been accepted, all figures should be moved to the end so that the text only contain markers like ``[Figure 1 about here]'' near where the figure would normally have occurred. You can rearrange the text to this effect simply by enabling the package {\tt endfloat} as suggested in the header of this document.
-
-
-% equations
-You can insert equations inline with the text like this:
-
-\begin{equation}
-	\label{radupdate}
-		\Psi_{N}^{n+1} = m_{N}^{(-)}\Psi_{N-1}^{n}+m_{N}^{(0)}\Psi_{N}^{n} + q_{N}\Psi_{N}^{n-1}
-\end{equation}
-where
-\begin{eqnarray*}
-	m_{N}^{(-)} &=& \frac{\lambda^2}{2\tau}\left(S_{N+1}+2S_{N}+S_{N-1}\right)\\
-	m_{N}^{(0)} &=& \frac{1}{\tau}\left(2-\frac{\lambda^2}{2}\left(S_{N+1}+2S_{N}+S_{N-1}\right)\right)\\
-	q_{N} &=& \frac{1}{\tau}\left(\frac{\gamma^2 k^2}{2h}\left(S_{N+1}+S_{N}\right)\left(\frac{\alpha_{1}}{k}-	\alpha_{2}\right)-1\right)
-\end{eqnarray*}
-and where 
-\begin{equation*}
-	\tau = \frac{\gamma^2 k^2}{2h}\left(S_{N+1}+S_{N}\right)\left(\frac{\alpha_{1}}{k}+\alpha_{2}\right)+1
-\end{equation*}
-
-% Use this environment for inserting source code examples.
-% Note, that this will print out text in the document exactly as you type it here in the .tex file. That means you can add empty spaces, tabs, blank lines here and they will be printed out like this in the document.). 
-%For more information check out the LaTeX-Package 'fancyvbr' documentation
+%Descriptive anatomy, that part of anatomy which treats of the forms and relations of parts, %but not of their textures. -- Descriptive geometry, that branch of geometry. which treats of %the graphic solution of problems involving three dimensions, by means of projections upon %auxiliary planes.Davies & Peck (Math. Dict. ) - 
 %
+%*Descriptive language
+%
+%-- De*scrip"tive*ly, adv. -- De*scrip"tive*ness, n.
+%
+%Acho que o vivace tá em coisa de Linguagem Lógica / Linguagem Restritiva:
+%https://en.wikipedia.org/wiki/Unification_(computing)
+%https://en.wikipedia.org/wiki/Declarative_programming#Subparadigms
+The language borrows elements from ixi lang (REF) and ABT (REF). It is not an imperative language. Instead of routines and procedures modifying the audio voices parameters we used definitions. In this way, Vivace is a XXX language (isso existe??) based on the following principles:
+\begin{itemize}
+\item Music is made by voices (instruments)
+            \begin{Verbatim}[fontfamily=courier, xleftmargin=\parindent]
+                #foo is an audio or video. Internally is a javascript Object with some properties
+                #copiar um prototipo do codigo do vivace
+            \end{Verbatim}
+\item The language should be simple (``freakcoders'' (ref freakcoding) only define some properties with a set of values (i.e. arrays, dictionaries) making possible to generate any kind of sequences, even by using list comprehension)
+            \begin{Verbatim}[fontfamily=courier, xleftmargin=\parindent]
+                #foo is an audio. Select some samples and their durations
+                # .1 means 0.1, a float
+                foo.pos = [1, 2, 3, 4, 5]
+                foo.gdur = [.1, .2, .3, .4, .5]
+                
+                #you can do above with list comprehensions
+                foo.pos = i for i list in range 1..5
+                foo.gdur = i/10 for i in foo.pos
+            \end{Verbatim}
+            
+\item Use mnemonic music-like operations (reverse, inverse, transpose) on these properties with syntax sugar (with care): few chars, big results
+            \begin{Verbatim}[fontfamily=courier, xleftmargin=\parindent]
+               foo.pos = i for i list in range 1..5
+               foo.gdur reverse i/10 for i in foo.pos
+            \end{Verbatim}
+            
+\item Voices have name, timbre and parameters ranging along the time
+\item Names are something like a, b, c, foo, bar, baz
+\item Timbre are signals made by chains of audio generators and filters or video files as described in Section ref audioengine
+\item Parameters are musical notes, amplitudes, oscillators frequency, delay time.
+\item Parameters changes their values at some time and have some durations
+
+\end{itemize}
+
+A ``Hello, World!'' example is shown in (REF) and a more complex in (REF).
+
 \begin{Verbatim}[fontfamily=courier, xleftmargin=\parindent]
-Use this style for program code, for example:
-main() {
-    printf("Hello World\n");    
-}
+# foo is a simple oscillator
+foo.sig = osc
+# its frequency changes between 220 and 440 Hz over time
+foo.osc.freq = [220, 440]
+# with specific durations
+foo.osc.dur = [1/4, 1/2]
 \end{Verbatim}
 
-%use of references
-Some examples for the use of references in the text:\\
-%author name in sentence, single authors
-\cite{Ano08}, \cite{Bele68}, \cite{Ther99}, \cite{Zica02},
-%author name in sentence, multiple authors
-\cite*{VeRo00}, \cite*{AtDa04}, 
-%reference in brackets, multiple authors
-\citep*{AtDa04} 
+\begin{Verbatim}[fontfamily=courier, xleftmargin=\parindent]
+# we can use music operations
+foo.pos = [1, 2, 3] reverse   # result is [3, 2, 1]
+foo.pos = [1, 2, 3] invinverse   # result is [1, 0, -1]
+foo.pos = [1, 2, 3] transpose +2   # result is [3, 4, 5]
+# and even use list comprehension
+foo.pos = [1/i+1 for i in [1, 2, 3]]
+# or  combining both
+foo.pos = [1/i+1 for i in [1, 2, 3]] reverse
+\end{Verbatim}
 
-
-%References
+To parse Vivace we used Jison (REF), a JavaScript library that clones Flex and Bison functionalities as lexer and parser.
+\section{The Audio Engine}
+% apontar o porquê web audio é interessante para livecoding (é uma API que usa código nativo em C++ para processamento em tempo real, possui uma ótima API para manipular nós de DSP, existem várias bibliotecas já prontas que implementam rotinas comuns (tuna)). além disso, a Web é interessante por vários motivos: permite colaboração, não fica aprisionada atrás de firewalls, HTML5/CSS permitem prototipação rápida de UI, não há necessidade de instalação de qualquer software por parte do cliente, apenas o browser, código é aberto desde o começo)
+% Audio Routing:
+% Audio sources: 
+%   osc(freq), saw(freq), square(freq), audio(filename)
+% Audio filters: 
+%   gain(), reverb(), delay(), echo(), low(freq), high(freq), band(f1, f2)
+% Out
+%   Chrome  offers 6 audio output channels, verified with Jack Audio Kit; this can  offers a better stereo image (REF) for some integrated web/audio-systems
+% http://www.html5rocks.com/en/tutorials/webaudio/intro/
+%"Before the HTML5 <audio> element, Flash or another plugin was required to break the silence of the web. While audio on the web no longer requires a plugin, the audio tag brings significant limitations for implementing sophisticated games and interactive applications. 
+%The Web Audio API is a high-level JavaScript API (única?) for processing and synthesizing audio in web applications."
+%
+%(https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html)"
+%"The primary paradigm is an audio routing graph, where a number of AudioNode objects are connected together to define the overall audio rendering."
+%
+% A especificação acima é semelhante a um esquema de roteamento de cabos em um patchbay em um sistema de projeção sonora (REF)
+% 
+% (patchbay analógio)http://media.soundonsound.com/sos/feb07/images/martin3patchbays.l.jpg
+% (patchbay GUI linux)
+http://www.rncbc.org/drupal/files/finalconnsaudio.png
+%(roteando com o Web Audio)
+\begin{Verbatim}[fontfamily=courier, xleftmargin=\parindent]
+window.onload = init;var context;var bufferLoader;
+function init() {
+  context = new webkitAudioContext();
+  bufferLoader = new BufferLoader(
+    context,
+    [
+      '../sounds/hyper-reality/br-jam-loop.wav',
+      '../sounds/hyper-reality/laughter.wav',
+    ],
+    finishedLoading
+    );
+  bufferLoader.load();}
+function finishedLoading(bufferList) {
+  // Create two sources and play them both together.
+  var source1 = context.createBufferSource();
+  var source2 = context.createBufferSource();
+  source1.buffer = bufferList[0];
+  source2.buffer = bufferList[1];
+  source1.connect(context.destination);
+  source2.connect(context.destination);
+  source1.noteOn(0);
+  source2.noteOn(0);}
+\end{Verbatim}
+(roteando com Vivace-lang)
+\begin{Verbatim}[fontfamily=courier, xleftmargin=\parindent]
+#roteando audio para modulos de efeito
+foo.src "audio.wav"
+foo -> "highPass" # que na verdade seria foo -> gainnode -> eqnode -> out
+#o audio tem gain node (L, R) ja adicionado
+foo.gain [.71, .71]
+#filtrando 
+foo.highPass 800
+foo.highPass 900
+}
+\end{Verbatim}
+ou usando o ainda em desenvolvimento VUI (Vivace User Interface)
+\section{Making it Collaborative}
+% Uso de share.js para compartilhar os comandos sendo entrados por mais de um usuário que estiver acessando a URL da instalação do Vivace.
+%
+% Como o fato de ser colaborativo influenciou a própria linguagem e a performance... como isso levou ao freakcoding?
+%
+%Vou começar aqui
+%
+%O Vivace como ferramente de performance possibilita que aja agenciamento, possibilitando a interação entre as várias pessoas que desejarem participar da apresentação, permitindo a cada um usar seu desejo de critividade, isso é, aquilo que ele quer ver acontecendo na performance, com o desejo de criatividade do outro. A interação não se dá mais a partir de uma partitura em comum, mas através de um desejo mutuo. Essa liberdade de interagir e interferir liberta o performer do formalismo da obra fechada para abrir a possibilidade de uma obra aberta que se dá no tempo real tanto no aspecto da interação entre os performers quanto no resultado da performance em si. É nesse contexto que nasce o Freak Coder, um sujeito que soma sua individualidade a de outros para conjuntamente transformar o computador em um instrumento de fruição artistica sem restringir para si o controle sobre a máquina, mas abrindo e convidando a todos a fazerem o mesmo. O Freak Coder decide por si o que irá realizar na máquina, mas mantém a máquina aberta para quem mais quiser usá-la, assim rompe não apenas com o formalismo mas amplia a própria compreenção da capacidade do computador como instrumento - tocável - e do indivíduo como operador. O Freak Coder pode se levantar e dar lugar para outro continuar a performance no seu lugar, isso nada muda a performance em si. 
+Por se utilizar de regras simples o Vivace permite a emergêrcia do resultado da performance e coloca como uma forma de jogo coletivo no qual as regras por estarem visivéis a todos permite uma rápida entrada nele. 
+\section{The Environment}
+%cravo, seria massa colocar uns shots aqui da UI para mixing!
+%vixi, elas tao com tanto bug que me perdi; tenho que upar
+%sem problemas, apenas uma imagen bonitinha ;-)
+\section{Conclusions}
+%Carnaval, uma proposta de "canal de TV pessoal" baseado em Vivace.
+%Interface com WebGL para novas GUIs e renderização de objetos 2D/3D, textos, ...
+%Freakcoding como um subgênero de livecoding: cravo, aqui seu manifesto poderia entrar forte ;-)
+% figura:
+%\begin{figure}[htpb]
+%\begin{center}
+%\includegraphics{myFigure.pdf}
+%\caption{Insert Figure caption here.}
+%\label{fig:myFigure}
+%\end{center}
+%\end{figure}
 \bibliographystyle{cmj}
 \bibliography{cmjbib}
+% from julian:
+% Ok feedback from Julian: my suggestion for the authors would be to move  from describing implementation details to motivation, concept,  implications of the work, and of course inspiration sources and existing  literature (in any field that seems relevant).
 
 \end{document}
