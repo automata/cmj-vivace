@@ -16,6 +16,11 @@
 %% uncomment it for final version.
 % \usepackage{endfloat}
 
+% comandos uteis do ricardo
+\newcommand{\note}[1]{\marginpar{\tiny\raggedright\textsf{\hspace{0pt}#1}}}
+\newcommand{\inote}[1]{\textcolor{blue}{\texttt{\footnotesize[#1]}}}
+\newcommand{\todo}[1]{\inote{TODO: #1}}
+
 \begin{document}
 
 %% %author - name
@@ -53,38 +58,44 @@ artistic genres, like Freak Coding.
 
 \section*{} % Introdução, sem título.
 
-In November of 2011 a live coding trio called FooBarBaz performed
-their first presentation for a wide audience~\footnote{Pictures of the
-  presentation is available at
+\todo{Revisar todo o texto.}
+
+In November of 2011 a live coding trio called \textit{FooBarBaz}
+performed their first presentation for a wide
+audience~\footnote{Pictures of the presentation are available at
   \url{http://www.flickr.com/photos/festivalcontato/6436260557}}. Live
-coding is becoming popular world wide but remains untouched in
-Brazil. We believe that this presentation was the first live coding
+coding is becoming popular world wide though remains untouched in
+Brazil. As fair as we know this presentation was the first live coding
 performance in our country. In that day an audience of about 5000
 attendees was introduced to an alternative audiovisual performance
 where code was used to create the music they were listening and, at
-same time, projected on two big screens.  
+same time, projected on screens.
 
 During the performance, the trio used ChucK~\cite{wang2003chuck} in an
 uncommon way. Instead of writing loops and conditionals, they
-manipulated parameters of audio samples files by editing lists of
-numerical sequences. Mnemonic operations (e.g. reverse, retrograde,
-transposition) were used on those sequences together with easy audio
-mixing (originally done in Puredata) and skeletons of
-code quick-inserted by editors. This revealed as good practices to
-live code during the performance.  
+manipulated parameters of audio files by editing lists of numerical
+values. Mnemonic operations (e.g. retrograde, transposition) were used
+on those sequences together with audio mixing (originally done in
+Puredata by one of the performers using literally his hands tracked by
+a camera) and code templates quick-inserted by editors. These revealed
+as good live coding practices during the performance.
 
 Based on those elements we designed a new language to be used on the
-subsequent sessions: Vivace~\footnote{Vivace source code is online at
-  \url{http://automata.github.com/vivace}}. We wanted to avoid
-software configuration and make it easy to share the session -- and
-the code -- with everyone. Thus, the Web was choosen as the running
+subsequent performances: Vivace~\footnote{Vivace is open-source and
+  its source and documentation are online at
+  \url{http://automata.github.com/vivace}. A live demonstration of
+  Vivace is online at \url{http://vivace.void.cc} ready to be used by
+  everyone using Google Chrome or Safari.}. We wanted to avoid software
+configuration and make it easy to share the session -- and the system
+itself -- with everyone. Thus, the Web was choosen as the running
 environment for Vivace. On every new session we performed using
 Vivace, new principles were added into the language and, at the same
-time, into our artistic behaviour.  
+time, into our artistic behaviour.
 
 In summary, this paper is a circle: we describe how a performance
-motivated the language and how the language influenced the creation a
-our style to live code that we now call Freak Coding.
+motivated the language and how the language itself influenced the
+creation of a live coding genre that we start calling ``Freak
+Coding''.
 
 % DEPRECATED??:
 %In summary, this paper describes:
@@ -104,81 +115,99 @@ our style to live code that we now call Freak Coding.
 
 \section{Motivation \& inspiration: arrange the room, the code is dirty}
 
-Vivace is inspired by couple of live coding languages. The sintax of Vivace, as shown in Figure~\ref{fig:vivace}, borrows elements from ixi lang~\cite{magnusson2011ixi} like the use of sequences as audio parameters. ABT (REF) was strongly important to the development of Vivace as well and we are planning to rewrite some of its components -- originally in Python -- inside Vivace. From ChucK we used the concept of chained unit generators specified by the $=>$ operator, imitating the objects connections in visual programming languages like Puredata.
+Vivace is inspired by various live coding languages. The sintax of
+Vivace, as shown in Figure~\ref{fig:vivace}, borrows elements from ixi
+lang~\cite{magnusson2011ixi} like the use of sequences to control
+audio parameters in real time. ABT~\cite{fabbri} and
+FIGGUS~\cite{fabbri2} were tightly important to the development of
+Vivace as well and we are planning to rewrite some of its components
+-- originally in Python -- inside Vivace. From ChucK we used the
+concept of chained unit generators specified by the $=>$ operator,
+imitating the object connections in visual programming languages like
+Puredata.
 
 \begin{figure}[htpb]
-\begin{center}
-\includegraphics[scale=.3]{img/fig_vivace.png}
-\caption{The Vivace environment}
-\label{fig:vivace}
-\end{center}
+  \begin{center}
+    \includegraphics[scale=.3]{img/fig_vivace.png}
+    \caption{The Vivace environment}
+    \label{fig:vivace}
+  \end{center}
 \end{figure}
 
 Along these \textit{desktop languages}, Vivace was also inspired by
-Web live coding languages. After the creation of Audio Data API and
-the most recent Web Audio API~\cite{webaudio} -- that makes possible
-to process audio in real time inside Web browsers -- a collection of
-audio Web applications started to emerge. The same was true for live
-coding languages and systems. Vivace is part of this \textit{family}
-of Web applications together with Gibber~\cite{gibber},
-livecoder~\cite{livecoder}, livecoding.io~\cite{livecodingio} and
-livecodelab~\cite{livecodelab}, to note some of them. A remarkable
-difference between Vivace and those languages or environments is the
-collaborativity. Vivace was built to make possible to write code with
-many hands at the same time, using the now popular "pads" -- a
-characteristic easily implemented on Web but not so much on desktop
-languages. Another difference is the unconcern to be a Turing-complete
-language, that made the design of Vivace more flexible and near of the
-music process instead of the computing process (a characteristic that
-we got from ixi lang). Vivace tries to balance between the rigorous of
-code and the flexibility of artistic expression.
+Web live coding languages. After the creation of Audio Data
+API~\cite{audiodata} and the most recent Web Audio API~\cite{webaudio}
+-- that makes possible to process audio in real time inside Web
+browsers -- a collection of audio Web applications started to
+emerge. The same is true for live coding languages and systems. Vivace
+is part of this \textit{family} of Web applications together with
+Gibber~\cite{gibber}, livecoder~\cite{livecoder},
+livecoding.io~\cite{livecodingio} and livecodelab~\cite{livecodelab},
+to note some of them. 
 
-\section{The language We all Speak}
+A remarkable difference between Vivace and those languages or
+environments is the collaborativity. Vivace was built to make possible
+to write code with many hands at the same time, using the now popular
+"pads" -- a characteristic easily implemented on Web although not so
+much in desktop languages. Another difference is the unconcern to be a
+Turing-complete language. This made the design of Vivace even more
+flexible and near of the music process instead of the computing
+process (a characteristic perceived in ixi lang as well). Vivace tries
+to place itself between the rigorous of code and the flexibility of
+artistic expression.
+
+\section{The language We all speak}
 
 Vivace, as a language\footnote{The complete language specification is
   online at
   \url{https://github.com/automata/vivace/wiki/Language-spec}}, is a
-collaborative livecoding language with use of extreme simple language
-sintax, mnemonic actions, easy mixing, template editing and audio
-parameters automation. In our experiences, the use of a shared code,
-sounds and images leads a more complex experience, thus greater the
-possibility of inconsistency of compiled code as well as actions for
-artistic result, leading us to discriminate specific language
-syntaxes.  
+collaborative live coding language with use of extreme simple language
+sintax, mnemonic actions, easy audio mixing, template editing and
+audio parameters automation. In our experience, the use of a shared
+code, sounds and images leads to a more complex scenario, thus greater
+the possibility of inconsistency of compiled code as well as actions
+for artistic result, leading us to discriminate specific language
+syntaxes.
 
-As already discussed, the language borrows elements from several
-computer music languages and systems, like ixi lang and ABT. It is not
-an imperative language. Instead of routines and procedures modifying
-the audio voices, we used definitions. The motivation behind the use
-of definitions is related with musical scores and the \emph{track
-  paradigm} used on music production softwares. It is more familiar to
-musicians (and, as we experienced on performances, to non-musician
-people) to understand a sequence of notes, or audio parameters, than a
+Vivace is not an imperative language. Instead of routines and
+procedures modifying the audio attributes, we used definitions. The
+motivation behind the use of definitions is related with musical
+scores and the \emph{track paradigm} common on music production
+softwares. It is more familiar to musicians (and, as we experienced
+during performances, also to non-musicians) to understand a sequence
+of notes, or audio parameters, repeating over and over again, than a
 for-loop and if-chains. In this way, Vivace is a declarative, domain
 specific language, based on the following principles:
 
 \begin{itemize}
   
-\item Names are something like $a$, $b$, $c$ and are dinamically defined.
+\item Names are something like $a$, $b$, $c$ and are dynamically defined.
 \item Music is made by voices (instruments).
-\item Voices have name, timbre and parameters ranging along the
-  time.  \item The language should be simple. ``Freak Coders''
-  (\ref{freakcoding}) only define some properties with a set of values
-  (i.e. arrays, dictionaries) making possible to generate sequences,
-  even using list comprehension.
+\item Voices have name, timbre and parameters changing along the
+  time.  
+\item The language should be simple. ``Freak coders''
+  (Section~\ref{freakcoding}) only define some properties with a set
+  of values (i.e. arrays, dictionaries) making possible to generate
+  sequences, even using list comprehension.
 \item Use mnemonic music-like operations (reverse, inverse, transpose)
   on these properties with syntax sugar (with care): few chars, big
-  results
+  results.
 \item Timbre are signals made by chains of audio generators and
-  filters or video files as described in Section~\ref{audioengine}
+  filters or video files as described in Section~\ref{audioengine}.
 \item Parameters are musical notes, amplitudes, oscillators frequency,
   delay time and so on.
-\item Parameters changes their values at some time and have some
-  durations.
+\item Parameters changes their values at specific times and during
+  certain durations.
 
 \end{itemize}
 
-Here is a ``Hello, World!'' listing. A voice is defined as \textit{foo} and its parameters are specified using the \textit{dot} operator. Every parameter changes overtime assuming the values written as sequences surrounded by brackets. An special sequence exists to every parameter. They are used to specify the time durations of each parameter value and are surrounded by keys instead. This is all the Vivace syntax.
+Here is a ``Hello, World!'' Vivace code. A voice is defined as
+\textit{foo} and its parameters are specified using the \textit{dot}
+operator. Every parameter changes over time assuming the values
+written as numerical sequences, surrounded by brackets. An special
+sequence exists to every parameter. It is used to specify the time
+durations of each parameter value and is surrounded by keys instead of
+brackets. This is all the Vivace syntax.
 
 \begin{Verbatim}[fontfamily=courier, xleftmargin=\parindent]
   # foo is a simple audio sample, oscillator or video file
@@ -189,28 +218,25 @@ Here is a ``Hello, World!'' listing. A voice is defined as \textit{foo} and its 
   foo.pos = {1/2, 1/4, 1/8, 1/16, 1}
 \end{Verbatim}
 
-There is extra semantics to operate on the typed sequences. Every
-sequence accepts operators: mnemonic commands used to reverse,
-transpose and even replace elements of the sequence based on list
+There are extra semantics to operate on the sequences. Every sequence
+accepts operators: mnemonic commands used to reverse, transpose and
+even replace elements of the sequence based on list
 comprehensions. Those operations are common in music composition and
 having them as mnemonics makes typing fast and handy for live
-coding. The next listing shows them.
+coding. The next listing presents the standard operators.
 
 \begin{Verbatim}[fontfamily=courier, xleftmargin=\parindent]
 # we can use operators
-
 foo.pos = [1, 2, 3] reverse        # result is [3, 2, 1]
 foo.pos = [1, 2, 3] inverse        # result is [1, 0, -1]
 foo.pos = [1, 2, 3] transpose +2   # result is [3, 4, 5]
 
 # and even list comprehension
-
-foo.pos = [1/i+1 for i in [1, 2, 3]] # result is [2, 3, 4]
+foo.pos = [1/i+1 for i in [1, 2, 3]] 
+# result is [2, 3, 4]
 
 # or combine both
-
 foo.pos = [1/i+1 for i in [1, 2, 3]] reverse 
-
 # result is [4, 3, 2] as spected
 \end{Verbatim}
 
@@ -218,15 +244,16 @@ Vivace is written in JavaScript to take advantage of Web technologies.
 To parse Vivace we used Jison~\cite{jison}, a JavaScript library that
 clones Flex and Bison functionalities as lexer and parser. This
 flexibility to parse and execute new languages as JavaScript inside
-every browser opens an oportunity to experiment with new sintaxes and
-semantics. And considering that Web was always strong on UI
-development thanks to HTML and CSS, we can experiment those new
-languages with fast prototyped UI. Along thise advantages, another one
-is remarkable: every live coding language built on Web runs everywhere
-a browser is present. No firewall chain, no software installation and
+every browser opens a remarkable oportunity to experiment with new
+sintaxes and semantics for live coding. Furthermore, considering Web
+was always strong on UI development thanks to HTML and CSS, we can
+experiment those new languages with fast prototyped UI. Along these
+advantages, another one is important to note: every live coding
+language built on Web runs everywhere a browser is installed. No
+firewall chain to surpass with OSC, no software installation and
 configuration, no dependencies, people just need to type an URL.
 
-\section{The Audio Engine}
+\section{The audio engine}
 \label{audioengine}
 
 Before Web Audio API, the only way to create sound in web pages was
@@ -234,24 +261,26 @@ using plugins. Recently, Web Audio API makes possible to do audio
 processing in real time on Web browsers (as this paper was written,
 only Google Chrome and Apple Safari supported the API and Mozilla is
 working to have it running on Firefox as well). Every routine is
-writen as native code (in C++ and Assembly) to guarantee
-performance. The API is based on a convenient paradigm: audio unit
-graphs. In this way, it specified a collection of nodes (AudioNode
-objects) and routines to connect and disconnect them. While
+writen as native code (in C++ and Assembly when needed) to guarantee
+maximum performance. The API is based on a convenient and familiar
+paradigm: audio unit graphs. Web Audio specifies a collection of nodes
+(AudioNode objects) and routines to connect and disconnect them. While
 manipulating those nodes we can create a large number of audio
-synthesizers, filters, analysers, mixers and so on. This motivated us
-to explore a basic approach of multichannel expansion, filtering and
-audio effects (like languages as SuperCollider, Puredata), controling
-an integrated Web audio system.
+applications: synthesizers, filters, analysers, mixers and even real
+time audio engines to live coding. This motivated us to explore a
+basic approach of multichannel expansion, filtering and audio effects
+(like languages as SuperCollider, Puredata), controling an integrated
+Web audio system.
 
-Every voice in Vivace is represented as an standard audio chain
-(Figure~\ref{fig:chain}). All audio units parameters within this chain
-could be manipulated editing the code or by sliders on a UI
-(Fig.~\ref{fig:ui}). This kind of interface is more familiar to
-musicians (remembering a real mixer) and makes possible an adequate
-treatment of voices timbre and spacial sensations of the sound sources
-(parameters like the level of stereophonics channels L and R, 3-band
-equalization filters and reverb time control).
+Every voice in Vivace is represented as a default audio chain as shown
+in Figure~\ref{fig:chain}. All audio units parameters within this
+chain (e.g. pitch, reverb time, high, medium and low channel levels,
+panner values and gain) could be manipulated editing the code or by
+sliders on a UI (Fig.~\ref{fig:ui}). This kind of interface is more
+familiar to musicians (remembering a real mixer) and makes possible an
+adequate treatment of voices timbre and spacial sensations of the
+sound sources (parameters like the level of stereophonics channels L
+and R, 3-band equalization filters and reverb time control).
 
 \begin{figure}[htpb]
   \begin{center}
@@ -270,6 +299,20 @@ equalization filters and reverb time control).
     \label{fig:ui}
   \end{center}
 \end{figure}
+
+Vivace supports every audio unit supported by Web Audio API. It is
+possible to load audio files or synthesize in real time using
+wavetable oscillators. The default audio chain of each voice can be
+modified at any time while it is running. It is interesting to note
+the presence of an ``Analyser'' inside the default chain. It uses FFT
+(natively implemented) to exposes sample values and frequencies making
+possible to use those values to animate videos and rendered forms
+inside Vivace.
+
+Along with audio, Vivace supports video files as well. It is possible
+to upload files or use YouTube URLs. Videos are treated the same way
+as buffer sources or oscillators, as voices, and can be manipulated on
+real time, making Vivace a live cinema or VJ tool.
 
 \section{Into the wild: making it collaborative}
 \label{freakcoding}
@@ -312,6 +355,8 @@ at the 9th edition of AVAV (\textit{\'{A}udio Visual Ao Vivo} or Live
 Audio Visual) an event where artists who are experimenting audio and
 video in real time comes together to show their works. In this
 presentation...
+
+\todo{Terminar de traduzir e adequar ao resto do artigo.}
 
 %O Vivace como ferramente possibilita que aja interação, permitindo a
 %cada um usar sua critividade. A interação não se dá mais a partir de
@@ -419,6 +464,8 @@ presentation...
 
 %Freakcoding como um subgênero de livecoding: cravo, aqui seu
 %manifesto poderia entrar forte ;-)
+
+\todo{Escrever...}
 
 \bibliographystyle{cmj}
 \bibliography{cmjbib}
