@@ -49,7 +49,7 @@ the language and how it is parsed and then executed using the recently
 created Web Audio API. A brief discussion is them posed on why the Web
 is an environment of interest to collaborative live coding and how it
 affected the performances. This work concludes by previewing how
-Vivace has motivated the creation of ``Freak Coding'' , a live coding
+Vivace has motivated the creation of ``freak coding'' , a live coding
 sub-genre.
 
 \section*{} % Introdução, sem título.
@@ -99,7 +99,7 @@ into our artistic behaviour.
 In summary, this paper is a circle: it describes how performances
 motivated the language and how the language itself influenced the
 creation of a live coding sub-genre that is being developed by many
-hands, called ``Freak Coding'' by its manifesto~\citep*{freak}, other
+hands, called ``freak coding'' by its manifesto~\citep*{freak}, other
 written resources, and in spoken instances.
 
 \parskip 18pt
@@ -148,15 +148,15 @@ the rigorous of code and the flexibility of artistic expression.
 
 \section{The language we all speak}
 
-Vivace, as a language\footnote{The complete language specification can
-  be found at
+Vivace, as a language~\footnote{The complete language specification
+  can be found at
   \url{https://github.com/automata/vivace/wiki/Language-spec}.}, is a
-collaborative live coding language with use of extreme simple language
-syntax, mnemonic actions, easy audio mixing, template editing and
-audio parameters automation. The use of shared code, sounds and images
-leads to a more complex scenario, thus greater the possibility of
+collaborative live coding language with use of extreme simple syntax,
+mnemonic operations, easy audio mixing, template editing and audio
+parameters automation. The use of shared code, sounds and images leads
+to a more complex scenario, thus greater the possibility of
 inconsistency of compiled code as well as actions for artistic
-result. This enhances the the fit of specific language syntaxes.
+result. This enhances the fit of specific language syntaxes.
 
 Vivace is not an imperative language. Instead of routines and
 procedures to control audio attributes, it uses definitions related
@@ -170,8 +170,8 @@ principles:
 
 \begin{itemize}
   
-\item Names are something like $a$, $b$, $c$ and are defined as the
-  user wants.
+\item Names are literals like $foo$, $bar$, $baz$ and are defined as
+  the user wants.
 \item Music is made by voices (instruments).
 \item Voices have name, timbre and parameters changing along the time.
 \item The language should be simple. ``Freak coders'', with a
@@ -189,11 +189,7 @@ principles:
 
 \end{itemize}
 
-Here is a ``Hello, World!'' Vivace code. A voice is defined as
-\textit{foo} and its parameters are specified using the \textit{dot}
-operator. Every parameter changes over time as the values written as
-numerical sequences, surrounded by brackets. A special sequence exists
-to every parameter.  This is all the Vivace syntax.
+Here is a ``Hello, World!'' Vivace code:
 
 \begin{Verbatim}[fontfamily=courier, xleftmargin=\parindent]
  # foo is a simple audio sample, oscillator or video file
@@ -201,15 +197,21 @@ to every parameter.  This is all the Vivace syntax.
  # defining the video positions (in seconds) to be played
  foo.pos = [10, 20, 35]
  # the durations (as time ratios) to play each position
- foo.cgur = [1/2, 1/4, 1/8, 1/16, 1]
+ foo.cdur = [1/2, 1/4, 1/8, 1/16, 1]
 \end{Verbatim}
+
+A voice is defined as \textit{foo} and its parameters are specified
+using the \textit{dot} operator. Every parameter changes over time as
+the values written as numerical sequences, surrounded by brackets. A
+special sequence exists to every parameter.  This is all the Vivace
+syntax.
 
 There are extra semantics to operate on the sequences. Every sequence
 accepts operators: mnemonic commands used to reverse, transpose and
 even replace elements of the sequence based on list
 comprehensions. Those operations are common in music composition and
 having them as mnemonics makes typing fast and handy for live
-coding. The next listing presents the standard operators.
+coding. The next listing presents the standard operators:
 
 \begin{Verbatim}[fontfamily=courier, xleftmargin=\parindent]
 # we can use operators
@@ -232,10 +234,10 @@ library that clones Flex and Bison functionalities as lexer and
 parser. This flexibility to parse and execute new languages as
 JavaScript inside every browser opens a remarkable oportunity to
 experiment with new sintaxes and semantics for live
-coding. Furthermore, considering Web was always strong on UI
-development thanks to HTML and CSS, one can experiment those new
-languages with fast prototyped UI -- a requisite already addressed by
-live coding languages~\citep*{magnusson2011algorithms} like
+coding. Furthermore, considering the tradition of UI design and
+development on Web thanks to HTML and CSS, one can experiment those
+new languages with fast prototyped UI -- a requisite already addressed
+by live coding languages~\citep*{magnusson2011algorithms} like
 Texture~\citep*{mclean2011texture}. Along these advantages, it is
 important to note: every live coding language built on Web runs
 everywhere a browser is installed. No firewall chain to surpass with
@@ -246,25 +248,25 @@ people just need to type an URL.
 
 Before Web Audio API, the only way to create sound in web pages was
 using plugins. Recently, Web Audio API enabled real time audio
-processing on Web browsers\footnote{At the time this paper was
+processing on Web browsers~\footnote{At the time this paper was
   written, only Google Chrome and Apple Safari supported the
   API. Mozilla is working to have it running on Firefox as
   well.}. Every routine is writen as native code (in C++ and Assembly
-when needed) to guarantee maximum performance. The API is based on a
-convenient and familiar paradigm: audio unit graphs. Web Audio
-specifies a collection of nodes (AudioNode objects) and routines to
-connect and disconnect them. While manipulating those nodes we can
-create a large number of audio applications: synthesizers, filters,
-analysers, mixers and even real time audio engines to live
-coding. This motivated basic explorations of multichannel expansion,
-filtering and audio effects, controling an integrated Web audio
-system.
+when apropriated) to guarantee maximum performance. The API is based
+on a convenient and familiar paradigm: audio unit graphs. Web Audio
+specifies a collection of nodes (\emph{AudioNode} objects) and
+routines to connect and disconnect them. While manipulating those
+nodes we can create a large number of audio applications:
+synthesizers, filters, analysers, mixers and even real time audio
+engines to live coding. This motivated basic explorations of
+multichannel expansion, filtering and audio effects, controling an
+integrated Web audio system.
 
 Every voice in Vivace is represented as a default audio chain such as
 the one shown in Figure~\ref{fig:chain}. All audio unit parameters
-within this chain (e.g. pitch, reverb time, high, medium and low
+within this chain (e.g.\ pitch, reverb time, high, medium and low
 channel levels, panner values and gain) can be manipulated editing the
-code or by sliders on a UI (Figure ~\ref{fig:ui}). This kind of
+code or by sliders on an UI (Figure ~\ref{fig:ui}). This kind of
 interface is more familiar to musicians, remembering a real mixer, and
 makes possible an adequate treatment of voices timbre and
 spacialization of the sound sources by means of parameters like level
@@ -289,18 +291,18 @@ of a 3-band equalization filter, and reverb time control.
   \end{center}
 \end{figure}
 
-Vivace supports every audio unit supported by Web Audio API. It is
+Vivace supports every audio unit implemented by Web Audio API. It is
 possible to load audio files or synthesize in real time using
 wavetable oscillators. The default audio chain of each voice can be
 modified at any time while it is running. It is interesting to note
 the presence of an ``Analyser'' inside the default chain. It uses FFT
 (natively implemented) to expose energies and frequencies, enabling
-the use of those values to animate videos and render forms inside
-Vivace.
+the use of those values to animate videos and render graphical forms
+inside Vivace.
 
 Along with audio, Vivace supports video files. It is possible to
 upload files or use YouTube URLs. Videos are treated the same way as
-buffer sources or oscillators, i.e. as voices, and can be manipulated
+buffer sources or oscillators, i.e.\ as voices, and can be manipulated
 on real time, making Vivace a live cinema or a VJing tool.
 
 \section{Into the wild: making it collaborative}
@@ -308,7 +310,7 @@ on real time, making Vivace a live cinema or a VJing tool.
 Vivace as a tool enables interaction while everyone could use its own
 creativity. The interaction is not mediated by a common score, but by
 a mutual desire to create a composition in real time. In this context
-borns the \emph{Freak Coder} (Figure~\ref{fig:freakcoder}): someone
+borns the \emph{freak coder} (Figure~\ref{fig:freakcoder}): someone
 that adds up his individuality to others aiming to transform the
 computer in an instrument of artistic fruition without restricting to
 itself the control of the machine but inviting everyone to join him in
@@ -322,7 +324,9 @@ join in.
 \begin{figure}[htpb]
   \begin{center}
     \includegraphics[scale=.4]{img/fig_freakcoder.png}
-    \caption{Freak Coder}
+    \caption{Freak coder: a live coder who, together with others, uses
+      popular and freak media to gain audience attention to the shared
+      code.}
     \label{fig:freakcoder}
   \end{center}
 \end{figure}
@@ -334,26 +338,26 @@ treated as a dogma or kept in secret. Live coding is seen as a
 behavioral disalienation of a digital artist. Not only the code is
 displayed and manipulated, but the computer screen and potentially any
 interaction between the performance and the computer. The triad
-performancer, code and audience characterises the performance
-as live coding.  This comprehension was possible after a presentation
-by LabMacambira.sourceforge.net at the 9th edition of AVAV
+performancer, code and audience characterises the performance as live
+coding.  This comprehension was possible after a presentation by
+LabMacambira.sourceforge.net at the 9th edition of AVAV
 (\textit{\'{A}udioVisual Ao Vivo} or Live Audiovisual), an event where
 artists who are experimenting audio and video in real time comes
-together to show their works. In this presentation Caleb Luporini and
-Gera Rocha started without Renato Fabbri and Vilson Vieira, as they
-were on their way to the presentation, traveling from another
-city. Upon arrival, they both turned their laptops on and started
-taking part on the performance in such a way that no embarrassment or
-rupture was brought into the happening.  It is important to state that
-no previous rehearsal had taken place between Mr. Luporini and
-Mr. Rocha\footnote{Videos were selected beforehand by Mr. Luporini
-  alone without knowledge of the other performers.}. In the 30 minutes
-performance, the audience started to take guidence from messages given
-on the performance big screen and edited Vivace code that was being
-played together with the starting four performers.
+together to show their works. In this presentation, the authors, Caleb
+Luporini and Gera Rocha started without Renato Fabbri and Vilson
+Vieira, as they were on their way to the presentation, traveling from
+another city. Upon arrival, they both turned their laptops on and
+started taking part on the performance in such a way that no
+embarrassment or rupture was brought into the happening.  It is
+important to state that no previous rehearsal had taken place between
+Mr. Luporini and Mr. Rocha~\footnote{Videos were selected beforehand by
+  Mr. Luporini alone without knowledge of the other performers.}. In
+the 30 minutes performance, the audience started to take guidence from
+messages given on the performance big screen and edited Vivace code
+that was being played together with the starting four performers.
 
 Another artifact noted on this presentarion was the emmergence, in a
-formal environment\footnote{The four performers were in a lightless
+formal environment~\footnote{The four performers were in a lightless
   room, three of them facing the big screen and the other one facing
   the public.}, of a collective euphoria fertilized by a man-machine
 interaction. It is the performer posture that takes a spectator to an
@@ -361,56 +365,56 @@ experience of a non-spectator and to take part on a highly
 technological activity as something playful and possible to be
 assimilated.  During the whole presentation, all
 labMacambira.sourceforge.net members were smiling and stablished a
-relation of lightness and brotherhood with the audience,
-i.e. spectators were being constantly invited by the posture of
+relation of lightness and brotherhood with the audience, i.e.\
+spectators were being constantly invited by the posture of
 labMacambira.sourceforge.net members to interact with what was being
 proposed.  This exchange between the four elements therein presents --
 performers, computer, Vivace and audience -- was able to create an
 environment of collaboration and liberty as generators of ludicity and
 knowledge unheard of, at least in Brazilian live coding terms. This is
-the ``facilitator'' that emerged and received the name \emph{Freak
-  Coder}.
+the ``facilitator'' that emerged and received the name \emph{freak
+  coder}.
 
-To gain attention of the audience, we as Freak Coders used popular
+To gain attention of the audience, we as freak coders used popular
 media as material. The code was shown in front of scenes from
 Brazilian novels (as in Figure~\ref{fig:novela}) and B-movies, what
-resulted in a freak style, with monster images and funny dialogues. In
-other performances for heterogeneous attendees the effect was the same
-as the first presentation where we used those kind of pop-art: the
-people was facinated by the adherence between the code and the media
-they see every day on their TV set. Since that, the use of popular and
-freak media becomes a signature of Freak Coding.
+resulted in a freak style, with images of monsters and funny dialogues
+between novel actors. In other performances for heterogeneous
+attendees the effect was the same as the first presentation where we
+used those kind of pop-art: the people was facinated by the adherence
+between the code and the media they see every day on their TV
+set. Since that, the use of popular and freak media becomes a
+signature of freak coding.
 
 \begin{figure}[htpb]
   \begin{center}
     \includegraphics[scale=.3]{img/fig_novela.png}
-    \caption{Videos from popular Brazilian novels were used as
-      material: extreme pop-art.}
+    \caption{Videos from popular Brazilian novels and B-movies were
+      used as material: extreme pop-art as artifice to attract
+      audience attention to the code.}
     \label{fig:novela}
   \end{center}
 \end{figure}
 
-All LabMacambira members participates in the Brazilian free software
-movement. In this way, Freak Coder origins should be looked for inside
-this movement, a figure raised from the characteristics presented on
-Vivace. It is inherent to the free software movement the continued
-transmission of what is known. The same happens on the
-desmistification of technology and the festive and gregarious
-behaviour.
-
-At the performer-computer relation is where this behaviour becomes
-concrete. More than the materials used in the live coding sessions,
-the performer instance in relation to he computer -- as already
-expressed in the described presentation -- is what really subverts not
-just the computer use but the relationship between the man and the
-machine. Namely a kind of a "rock and roll" stance. The Freak Coder
-breaks, by his own nature, with the stigma of the computer as the
-source of a serious and profissinal posture. In the same way, breaks
-with the posture of the scholar performer, stern and closed in
-itself. The Freak Coder is "rock and roll". The Freak Coder becomes
-Jerry Lee of technology making ``techno-pyrophagy''. The Freak Coder
-codes and smiles at same time. The Freak Coder seduces through the
-computer screen and by the way he codes.
+All labMacambira.sourceforge.net members participates in the Brazilian
+free software movement. In this way, freak coding origins should be
+looked for inside this movement, a figure raised from the
+characteristics presented on Vivace. It is inherent to the free
+software movement the continued transmission of what is known. The
+same happens on the desmistification of technology and the festive and
+gregarious behaviour. At the performer-computer relation is where this
+behaviour becomes concrete. More than the materials used in the live
+coding sessions, the performer instance in relation to the computer --
+as already expressed in the described presentation -- is what really
+subverts not just the computer use but the relationship between the
+man and the machine. Namely a kind of a ``rock and roll'' stance. The
+freak coder breaks, by his own nature, with the stigma of the computer
+as the source of a serious and professional posture. In the same way,
+breaks with the posture of the scholar performer, stern and closed in
+itself. The freak coding is ``rock and roll''. The freak coder becomes
+Jerry Lee of technology making ``techno-pyrophagy''. He codes and
+smiles at same time. The freak coder seduces through the computer
+screen and by the way he codes.
 
 \section{Conclusions}
 
@@ -428,15 +432,15 @@ collaborative sesions.
 It is important to note the advantage of using Web as the platform for
 experimentation on live coding and other computer music
 developments. The recent APIs like Web Audio together with means to
-easely prototype UI and language parsers creates a prolific
+easily prototype UI and language parsers creates a prolific
 scenario. Henceforth the most interesting characteristic is the
 collaboration proportioned by Web. Using collaborative editors we can
 expose an entire music program to be edited by anyone, anywhere.
 
-Vivace, although a "freak coding" language, is constrained in its
+Vivace, although a ``freak coding'' language, is constrained in its
 music expression. Having a domain specific language as Vivace is
-interesting to express some musical ideas while others became
-impossible to be expressed. In this context we assume Vivace as a
+interesting to express some musical ideas while others became hard or
+even impossible to be expressed. In this context we assume Vivace as a
 first step to create other languages and collaborative systems,
 emerging from live coding practices. In this way, we can tell that
 those performances and even Vivace are motivating the creation of
@@ -451,23 +455,24 @@ In our experiences as performances and developers of live coding
 languages we can assert this style of music realization as
 inspirational and flexible. Nevertheless, we continue to search for
 improvements on Vivace -- and others derived tools -- to increase the
-already solid objective of live coding as a musical practice: turn the
-computer music performance more human, more interactive with audience.
+already consolidated objective of live coding as a musical practice:
+turn the computer music performance more human, more interactive with
+audience.
 
-Future improvements are planned to Vivace: the possibility to
-explicitly define large archs as nested sequences related to audio
-units, the use of 3D graphics APIs to render forms -- passive to be
-changed by currently running audio parameters -- and text messages to
-the audience, and improved UI to make the code edition more flexible
-and reactive~\citep*{brett}.  Along with the language and system
-itself, this paper is a live initiative. The Freak Coder as an
+Future improvements are planned on Vivace: the possibility to
+explicitly define large music archs as nested sequences related to
+audio units, the use of 3D graphics APIs to render forms -- passive to
+be changed by currently running audio parameters -- and text messages
+to the audience, and improved UI to make the code editing more
+flexible and reactive~\citep*{brett}.  Along with the language and
+system itself, this paper is a live initiative. The freak coding as an
 artistic style will be explored more deeply on future studies --
 regarding its own aesthetics -- and in already planned performances.
 
 We want to end underlining the social importance regarding live
 coding. The authors, although working on the same collective, were not
 working close to each other since the creation of Vivace and the rise
-of Freak Coding. The performances were provided by the union of those
+of freak coding. The performances were provided by the union of those
 artists. Their union created their own tools and influenced their own
 attitude. And the circle starts again.
 
