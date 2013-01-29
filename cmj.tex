@@ -19,7 +19,7 @@
 \begin{document}
 
 %% %author - name
-%% {\cmjAuthor Vilson Vieira, Guilherme Lunhani, Geraldo Magela de Castro Rocha Junior, Caleb Mascarenhas Luporini, Daniel Penalva, Ricardo Fabbri, Renato Fabbri}
+%% {\cmjAuthor Vilson Vieira, Renato Fabbri, Guilherme Lunhani, Geraldo Magela de Castro Rocha Junior}
 %% %author - address
 %% \newline
 %% \begin{cmjAuthorAddress}
@@ -27,14 +27,17 @@
 %%     Universidade de São Paulo\\
 %%     1234 Anywhere Street\\
 %%     Anywhere, Anwhere 012345 USA\\
-%%     vilson@void.cc, gcravista@gmail.com, gera.sp@gmail.com, calebml@gmail.com, dkajah@gmail.com, rfabbri@gmail.com, renato.fabbri@gmail.com
+%%     vilson@void.cc, renato.fabbri@gmail.com, gcravista@gmail.com, gera.sp@gmail.com
 %% \end{cmjAuthorAddress}
 
 \vspace*{24pt}
 
 %{\cmjAuthorPhone << AUTHOR TELEPHONE (not for publication): +55 16 8108 7007 >>}
 
-{\cmjTitle Vivace: A Collaborative Live Coding Language}
+ {\cmjTitle Vivace: A Collaborative Live Coding Language}
+
+% outros títulos.. ??????????
+% Vivace: Freak Coding on Your Face
 
 \section*{Abstract}
 
@@ -49,54 +52,53 @@ affects the performances. This work concludes by previewing how
 Vivace has motivated the creation of ``freak coding'' , a live coding
 sub-genre.
 
-\section*{}
+\section*{} % Introdução, sem título.
 
-In November of 2011, a live coding trio called
-\textit{FooBarBaz}~\citep{foobarbaz} unleashed its first presentation
-for a wide audience. Its performers were using two instances of
-ChucK~\citep{wang2003chuck} and a dedicated mixing Puredata + Analog
-Mixer instance~\footnote{Pictures of the presentation are available at
+In November of 2011, a live coding trio called \textit{FooBarBaz}
+unleashed its first presentation for a wide audience. Its performers
+were using two instances of ChucK~\citep*{wang2003chuck} and a
+dedicated mixing Puredata + Analog Mixer instance~\footnote{Pictures
+  of the presentation available at
   \url{http://www.flickr.com/photos/festivalcontato/6436260557}}. Live
-coding has been gaining world wide popularity~\citep{nilson2007live,
-  collins2003live, brown2007a, collins2011live}, while remaining quite
-untouched in Brazil. To the best of our knowledge, that presentation
-was the first live coding performance in our country -- between
-3000-5000 attendees were in the audience where code was used
-on-the-fly to create the music they were listening. At same time, two
-live coding desktop work-spaces were projected on big screens to the
-public, following the principles from the TOPLAP~\citep{ward2004live}
-manifesto.
+coding has been gaining world wide popularity~\citep*{nilson2007live}, while
+remaining quite untouched in Brazil. To the best of our knowledge, that
+presentation was the first live coding performance in our
+country -- between 3000-5000 attendees were in the
+audience where code was used on-the-fly to create the music they were
+listening. At same time, two live coding desktop work-spaces were projected
+on big screens to the public, following the principles from the
+\textsc{toplap} manifesto~\citep*{ward2004live}.
 
-During the performance, the trio used ChucK in an uncommon
+During the performance, the trio used ChucK in an unconventional
 way. Instead of writing loops and conditionals, one of the live coders
 manipulated parameters of audio files by editing lists of numerical
 values together with mnemonic operations like retrograde and
-transposition. The other live coder focused on more fluid lines using
-large sounds with evolving characteristics, this contributed with
-larger musical arcs. Audio mixing with Puredata was done by the third
-performer using literally his hands tracked by a camera and color
-detection based algorithms. Live coders used code templates
-quick-inserted by editors (Vi and Emacs). Other visual resources the
-performers focused on were: Unix ``cowsay'' generated phrases on
-individual terminals and animated bouncing balls -- stimulating the
-audience to imitate Rapid Eyes Movements (REM). These artifacts -
-code, ``cowsay'' phrases, moving REM-like points of reference, all
-projected to the public -- were incorporated as good practices during
-the live coding performance.
+transposition.  The other live coder focused on more fluid lines with
+large sounds having evolving characteristics; this contributed with
+larger musical arcs.  Audio mixing with Puredata was carried out by the
+third performer literally using handwaving gestures tracked by a camera and
+our custom-designed color detection algorithms. Live coders used code
+templates quick-inserted by programmer text editors (Vi and Emacs). Other visual
+resources the performers focused on were: Unix ``cowsay'' generated phrases on
+individual terminals and animated bouncing balls -- stimulating the audience to
+imitate Rapid Eyes Movements (REM). These artifacts - code, ``cowsay'' phrases,
+moving REM-like points of reference, all projected in big screens to the public
+-- were incorporated as good practices during the live coding performance.
 
 Therefore, based on those elements, a new language was designed:
 Vivace~\footnote{A live demonstration of Vivace is on-line at
   \url{http://vivace.void.cc} ready to be used by everyone using
-  Google Chrome or Apple Safari.}~\citep{Vivace}.  To avoid software
-configuration and make it easy to share the session with everyone, the
-Web was chosen as the running environment for Vivace. On every new
-session performed using Vivace, new principles were added into the
-language and, at the same time, into our artistic behavior.
+  Google Chrome or Apple Safari.}~\citep*{Vivace}.  To avoid software
+configuration and make it easy to share the session -- and the system
+itself -- with everyone, the Web was chosen as the running
+environment for Vivace. On every new session performed using Vivace,
+new principles were added into the language and, at the same time,
+into our artistic behavior.
 
 In summary, this paper is a circle: it describes how performances
 motivated the language and how the language itself influenced the
 creation of a live coding sub-genre that is being developed by many
-hands, called ``freak coding'' by its manifesto~\citep{freak}, other
+hands, called ``freak coding'' by its manifesto~\citep*{freak}, other
 written resources, and in spoken instances.
 
 \parskip 18pt
@@ -111,9 +113,7 @@ FIGGUS~\citep{fabbri2} were tightly important to the development of
 Vivace as well and we are planning to rewrite some of its components
 -- originally in Python -- inside Vivace. ChucK suggested chained unit
 generators specified by the $=>$ operator, imitating the object
-connections in visual programming languages like
-Puredata. Fluxus~\citep{fluxus} was also inspirational for the Vivace
-environment where the code is shown on top of the video frames.
+connections in visual programming languages like Puredata.
 
 \begin{figure}[htpb]
   \begin{center}
@@ -123,16 +123,16 @@ environment where the code is shown on top of the video frames.
   \end{center}
 \end{figure}
 
-After the creation of Audio Data API~\citep{audiodata} and the most
-recent Web Audio API~\citep{webaudio} -- that makes possible to
+After the creation of Audio Data API~\citep*{audiodata} and the most
+recent Web Audio API~\citep*{webaudio} -- that makes possible to
 process audio in real time inside Web browsers -- a collection of
-audio Web applications started to emerge. The same was true for live
+audio Web applications started to emerge. The same is true for live
 coding languages and systems.  Thus, along with the \textit{desktop
   languages} pointed above, Vivace was also inspired by Web live
 coding languages and is part of this \textit{family} of Web
-applications together with Gibber~\citep{gibber},
-livecoder~\citep{livecoder}, livecoding.io~\citep{livecodingio} and
-livecodelab~\citep{livecodelab}, to note some of them.
+applications together with Gibber~\citep*{gibber},
+livecoder~\citep*{livecoder}, livecoding.io~\citep*{livecodingio} and
+livecodelab~\citep*{livecodelab}, to note some of them.
 
 A remarkable difference between Vivace and those languages or
 environments is the collaboratively. Vivace was built to make possible
@@ -158,7 +158,7 @@ inconsistency of compiled code as well as actions for artistic
 result. This enhances the fit of specific language syntax.
 
 Vivace is not an imperative language. Instead of routines and
-procedures to control audio attributes, it uses definitions -- related
+procedures to control audio attributes, it uses definitions related
 with musical scores and the \emph{track paradigm} common on music
 production software. It is natural to musicians (and, as we
 experienced during performances, also to non-musicians) to understand
@@ -191,12 +191,12 @@ principles:
 Here is a ``Hello, World!'' Vivace code:
 
 \begin{Verbatim}[fontfamily=courier, xleftmargin=\parindent]
-# foo is a simple audio sample, oscillator or video file
-foo.src = youtube('http://www.youtube.com/watch?v=XXX')
-# defining the video positions (in seconds) to be played
-foo.pos = [10, 20, 35]
-# the durations (as time ratios) to play each position
-foo.cdur = [1/2, 1/4, 1/8, 1/16, 1]
+ # foo is a simple audio sample, oscillator or video file
+ foo.src = youtube('http://www.youtube.com/watch?v=XXX')
+ # defining the video positions (in seconds) to be played
+ foo.pos = [10, 20, 35]
+ # the durations (as time ratios) to play each position
+ foo.cdur = [1/2, 1/4, 1/8, 1/16, 1]
 \end{Verbatim}
 
 A voice is defined as \textit{foo} and its parameters are specified
@@ -228,27 +228,22 @@ foo.pos = [1/i+1 for i in [1, 2, 3]] reverse
 \end{Verbatim}
 
 Vivace is written in JavaScript to take advantage of Web technologies.
-To parse Vivace, Jison~\citep{jison} comes handy, a JavaScript
+To parse Vivace, Jison~\citep*{jison} comes handy, a JavaScript
 library that clones Flex and Bison functionality as lexer and
 parser. This flexibility to parse and execute new languages as
 JavaScript inside every browser opens a remarkable opportunity to
-experiment with new syntax and semantics for live coding. To make the
-Vivace editor collaborative we used ShareJS~\citep{sharejs} which
-make Web applications content live concurrent. In this way it was
-possible to share Vivace code with any user accessing a common
-URL. Furthermore, considering the tradition of UI design and
+experiment with new syntax and semantics for live
+coding. Furthermore, considering the tradition of UI design and
 development on Web thanks to HTML and CSS, one can experiment those
-new languages with fast prototyped UI -- a necessity already addressed
-by live coding languages~\citep{mclean2010visualisation,
-  magnusson2011algorithms} like
-\emph{Texture}~\citep{mclean2011texture}, \emph{Al-Jazari} and
-\emph{Betablocker}. Along these advantages, it is important to note:
-every live coding language built on Web runs everywhere a browser is
-installed. No firewall chain to surpass to use OSC, no software
-installation and configuration, no dependencies, people just need to
-type an URL.
+new languages with fast prototyped UI -- a requisite already addressed
+by live coding languages~\citep*{magnusson2011algorithms} like
+Texture~\citep*{mclean2011texture}. Along these advantages, it is
+important to note: every live coding language built on Web runs
+everywhere a browser is installed. No firewall chain to surpass with
+OSC, no software installation and configuration, no dependencies,
+people just need to type an URL.
 
-\section{Vivace audio and video engine}
+\section{Vivace audio engine}
 
 Before Web Audio API, the only way to create sound in web pages was
 using plug-ins. Recently, Web Audio API enabled real time audio
@@ -280,7 +275,7 @@ of a 3-band equalization filter, and reverb time control.
 \begin{figure}[htpb]
   \begin{center}
     \includegraphics[scale=.5]{img/fig_chain.png}
-    \caption{Standard audio unit chain as Web Audio API objects for
+    \caption{Standard audio unit chains as Web Audio API objects for
       each Vivace voice.}
     \label{fig:chain}
   \end{center}
@@ -472,7 +467,7 @@ explicitly define large music arcs as nested sequences related to
 audio units, the use of 3D graphics APIs to render forms -- passive to
 be changed by currently running audio parameters -- and text messages
 to the audience, and improved UI to make the code editing more
-flexible and reactive~\citep{brett}.  Along with the language and
+flexible and reactive~\citep*{brett}.  Along with the language and
 system itself, this paper is a live initiative. The freak coding as an
 artistic style will be explored more deeply on future studies --
 regarding its own aesthetics -- and in already planned performances.
