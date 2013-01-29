@@ -78,24 +78,24 @@ large sounds having evolving characteristics; this contributed with
 larger musical arcs.  Audio mixing with Puredata was carried out by the
 third performer literally using handwaving gestures tracked by a camera and
 our custom-designed color detection algorithms. Live coders used code
-templates quick-inserted by programmer text editors (Vi and Emacs). Other visual
+templates quick-inserted by programmer's text editors (Vi and Emacs). Other visual
 resources the performers focused on were: Unix ``cowsay'' generated phrases on
 individual terminals and animated bouncing balls -- stimulating the audience to
 imitate Rapid Eyes Movements (REM). These artifacts - code, ``cowsay'' phrases,
 moving REM-like points of reference, all projected in big screens to the public
 -- were incorporated as good practices during the live coding performance.
 
-Therefore, based on those elements, a new language was designed:
+Based on the aforementioned elements, a new language was designed:
 Vivace~\footnote{A live demonstration of Vivace is on-line at
   \url{http://vivace.void.cc} ready to be used by everyone using
   Google Chrome or Apple Safari.}~\citep*{Vivace}.  To avoid software
-configuration and make it easy to share the session -- and the system
+configuration and to make it easy to share the session -- and the system
 itself -- with everyone, the Web was chosen as the running
 environment for Vivace. On every new session performed using Vivace,
 new principles were added into the language and, at the same time,
 into our artistic behavior.
 
-In summary, this paper is a circle: it describes how performances
+In summary, this paper has a circular structure: it describes how actual performances
 motivated the language and how the language itself influenced the
 creation of a live coding sub-genre that is being developed by many
 hands, called ``freak coding'' by its manifesto~\citep*{freak}, other
@@ -103,16 +103,16 @@ written resources, and in spoken instances.
 
 \parskip 18pt
 
-\section{More motivation \& inspiration: arrange the room, the code is dirty}
+\section{Additional motivation \& inspiration: arrange the room, the code is dirty}
 
 Vivace is inspired by various live coding languages. The syntax of
 Vivace, as shown in Figure~\ref{fig:vivace}, borrows elements from ixi
-lang~\citep{magnusson2011ixi} like the use of sequences to control
+lang~\citep{magnusson2011ixi} such as the use of sequences to control
 audio parameters in real time. ABT~\citep{fabbri} and
-FIGGUS~\citep{fabbri2} were tightly important to the development of
-Vivace as well and we are planning to rewrite some of its components
+FIGGUS~\citep{fabbri2} were tightly relevant to the development of
+Vivace as well and we are planning to rewrite some of their components
 -- originally in Python -- inside Vivace. ChucK suggested chained unit
-generators specified by the $=>$ operator, imitating the object
+generators specified by the $=>$ operator, mimicking the object
 connections in visual programming languages like Puredata.
 
 \begin{figure}[htpb]
@@ -124,36 +124,37 @@ connections in visual programming languages like Puredata.
 \end{figure}
 
 After the creation of Audio Data API~\citep*{audiodata} and the most
-recent Web Audio API~\citep*{webaudio} -- that makes possible to
-process audio in real time inside Web browsers -- a collection of
-audio Web applications started to emerge. The same is true for live
-coding languages and systems.  Thus, along with the \textit{desktop
-  languages} pointed above, Vivace was also inspired by Web live
+recent Web Audio API~\citep*{webaudio} -- enabling
+real time audio processing inside Web browsers -- a collection of
+audio Web applications started to emerge. The same holds for live
+coding languages and systems.  Thus, in addition to the \textit{desktop
+  languages} pointed above, Vivace was also inspired by recent Web live
 coding languages and is part of this \textit{family} of Web
 applications together with Gibber~\citep*{gibber},
 livecoder~\citep*{livecoder}, livecoding.io~\citep*{livecodingio} and
 livecodelab~\citep*{livecodelab}, to note some of them.
 
-A remarkable difference between Vivace and those languages or
-environments is the collaboratively. Vivace was built to make possible
-to write code with many hands at the same time, as happens with the
-now popular ``pads''~\footnote{Etherpad on:
-  \url{http://etherpad.org/}.}, a characteristic easily implemented on
-Web.  Another difference is the unconcern to be a Turing-complete
-language. This made the design of Vivace more flexible and near to the
-music process instead of the computing process (a characteristic
+A remarkable difference between Vivace and other languages or
+environments in the same family is the element of collaborativity. Vivace was
+built to enable
+writing code with many hands at the same time, as with the
+now popular ``e-pads'' or collaborative real-time text editors~\footnote{Etherpad on:
+  \url{http://etherpad.org}.}, a feature which is naturally implementable on the
+Web. Another difference is the unconcern to be a Turing-complete
+language. This made the design of Vivace more flexible and closer to the
+musical process rather than the computing process (a characteristic
 perceived in ixi lang as well). Vivace tries to place itself between
-the rigorous of code and the flexibility of artistic expression.
+the precision of code and the flexibility of artistic expression.
 
 \section{The language (specification) we all speak}
 
-Vivace, as a language~\footnote{The complete language specification
+Vivace, as a language~\footnote{The complete specification
   can be found at
   \url{https://github.com/automata/vivace/wiki/Language-spec}.}, is a
-collaborative live coding language with use of extreme simple syntax,
+collaborative live coding language with use of extremely simple syntax,
 mnemonic operations, easy audio mixing, template editing and audio
 parameters automation. The use of shared code, sounds and images leads
-to a more complex scenario, thus greater the possibility of
+to a more complex scenario, thus increasing the possibility of
 inconsistency of compiled code as well as actions for artistic
 result. This enhances the fit of specific language syntax.
 
@@ -172,7 +173,7 @@ principles:
 \item Names are literals like $foo$, $bar$, $baz$ and are defined as
   the user wants.
 \item Music is made by voices (instruments).
-\item Voices have name, timbre and parameters changing along the time.
+\item Voices have name, timbre and parameters changing along time.
 \item The language should be simple. ``Freak coders'', with a
   dedicated section below, only define some properties with a set of
   values (i.e. arrays, dictionaries) making it possible to generate
@@ -181,11 +182,9 @@ principles:
   properties by use of syntax sugar: few chars, big results.
 \item Timbre are signals made by chains of audio generators and
   filters or video files as described below.
-\item Parameters are musical notes, amplitudes, oscillators frequency,
+\item Parameters are musical notes, amplitudes, oscillator frequencies,
   delay time and so on.
-\item Parameters changes their values at specific times and during
-  certain durations.
-
+\item Parameters change their values at specific times and for certain durations.
 \end{itemize}
 
 Here is a ``Hello, World!'' Vivace code:
