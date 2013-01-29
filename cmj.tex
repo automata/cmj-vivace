@@ -244,13 +244,13 @@ people just need to type an URL.
 
 \section{Vivace audio engine}
 
-Before Web Audio API, the only way to create sound in web pages was
-using plug-ins. Recently, Web Audio API enabled real time audio
+Before the Web Audio API, the only way to create sound in web pages was
+using plug-ins. Recently, the Web Audio API enabled real time audio
 processing on Web browsers~\footnote{At the time this paper was
   written, only Google Chrome and Apple Safari supported the
   API. Mozilla is working to have it running on Firefox as
-  well.}. Every routine is written as native code (in C++ and Assembly
-when appropriated) to guarantee maximum performance. The API is based
+  well.}. Every functionality is implemented as native code (in C++ and Assembly
+when appropriate) to guarantee maximum performance. The API is based
 on a convenient and familiar paradigm: audio unit graphs. Web Audio
 specifies a collection of nodes (\emph{AudioNode} objects) and
 routines to connect and disconnect them. While manipulating those
@@ -264,9 +264,9 @@ Every voice in Vivace is represented as a default audio chain such as
 the one shown in Figure~\ref{fig:chain}. All audio unit parameters
 within this chain (e.g.\ pitch, reverb time, high, medium and low
 channel levels, panner values and gain) can be manipulated editing the
-code or by sliders on an UI (Figure ~\ref{fig:ui}). This kind of
-interface is more familiar to musicians, remembering a real mixer, and
-makes possible an adequate treatment of voices timbre and
+code or by sliders on a GUI (Figure ~\ref{fig:ui}). This kind of
+interface is more familiar to musicians, resembling a real mixer, and
+enables an adequate treatment of voice timbre and
 spacialization of the sound sources by means of parameters like level
 of stereophonic channels L and R, quality, central frequency and gain
 of a 3-band equalization filter, and reverb time control.
@@ -303,7 +303,7 @@ upload files or use YouTube URLs. Videos are treated the same way as
 buffer sources or oscillators, i.e.\ as voices, and can be manipulated
 on real time, making Vivace a live cinema or a VJing tool.
 
-\section{Into the wild: the raise of freak coding makes it collaborative}
+\section{Into the wild: the rise of freak coding makes it collaborative}
 
 Vivace as a tool enables interaction while everyone could use its own
 creativity. The interaction is not mediated by a common score, but by
