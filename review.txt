@@ -1,0 +1,741 @@
+rDecision:
+
+Rejection from the special issue. The authors are encouraged to rework
+and resubmit to a conference as a paper or studio report. The
+reviewers have been unusually thorough and generous with their
+analysis and advice, which should empower you to create a strong
+contribution in this context.
+
+
+Meta-review comments:
+
+The reviewers have put a great deal of time and effort into the
+review, and there is not much more to be said. One of the reviewers is
+more hopeful for its inclusion than the other, but with the amount of
+revisions required, I am afraid we will not be able to include it.  
+
+While the present contribution is not quite up to journal quality, I
+anticipate the authors will find the reviewers' advice very helpful in
+taking their promising work further - I would certainly not take their
+comments as discouraging.
+
+
+Reviewer 1:
+
+✓ Is the subject matter and presentation appropriate for Computer
+Music Journal? 
+
+Yes.
+
+X Does the paper meet its stated goals; are they meaningful for the material? 
+
+No.
+
+X Are the idea presented clearly; is the presentation well organized? 
+
+No.
+
+✓ Have the authors ignored significant work or contradictory results? 
+
+Yes.
+
+✓ What (if any) material should be added or deleted to improve this manuscript? 
+
+A user evaluation would be an important addition, and the section on
+"Freak Coding" must be revised or deleted.
+
+X Does the paper require any additional audio and/or video material
+in order to be evaluated by you or understood by readers? 
+
+No.
+
+As a summary, would you say that the article should:
+
+✓ be published in Computer Music Journal after significant rewriting
+(as specified):
+
+Yes. (See below)
+
+
+Please provide any additional comments below that you have about
+specific points in the text, as well as general feedback about the
+paper. Your thoughtful review is an important part of maintaining the
+quality of CMJ publications.
+
+
+Overall:
+
+The topic is relevant and the browser based implementation represents
+an important and developing area in live coding. The language looks
+well made and the live coding project makes an important
+contribution. The paper itself needs revision to be considered ready
+for journal publication. The main concerns are issues with grammar, a
+weak review of and comparison against previous work, the lack of any
+kind of evaluation, and the overuse of broad language with
+unsubstantiated claims. As it is, the paper would work fine as a
+conference paper, but more work needs to be done for it to be ready as
+a journal article.
+
+The writing needs a fair amount of revision. The author must have it
+proofread and corrected for both grammar and structure. Some examples:
+
+	"To the best of our knowledge, that presentation was the first
+	live coding performance in our country – almost 5,000
+	attendees were in the audience where code was used on-the-fly
+	to create the music they were listening." [Reviewer: 'to
+	create the music [that] they were listening [to]' or something
+	else along those lines].
+
+	"It is inherent to the free software movement the continued
+	transmission of what is known. The same happens on the
+	demystification of technology and the festive and gregarious
+	behavior." [Reviewer: This use of language is awkward and
+	confusing.]
+
+	"Furthermore, considering the tradition of UI design and
+	development on the Web thanks to HTML and CSS, one can
+	experiment those new languages with fast prototyped UI"
+	[Reviewer: needs rewording]
+
+	"He codes and cheers at same time." [Reviewer: Should be
+	"...at [the] same time."]
+
+
+Page 2: A footnote or reference for "Cowsay" needs to be provided.
+
+Page 2: Inference is used at several points without reference, for
+instance on page 2 with regards to the name: "...called “freak coding”
+by its manifesto (removed for anonymity 2012b), other written
+resources, and in spoken instances." but no references are supplied to
+confirm this claim aside from the manifesto reference.
+
+Page 2: The author should consider adding helpful information to the
+demonstration page at: http://vivace.void.cc/ Upon visiting the page,
+I was presented with a black screen and nothing. This is not a good
+introduction, instead helpful code should be presented with some
+comments about how to get started and if possible where to find
+documentation.
+
+Page 3/4: The structure of the paper is hard to follow at times. The
+transition from a list of influences on page 3 to a brief review of
+the development of web technologies on page 4 is jarring and
+confusing. The author must order the paper so that introductory
+material precedes the main sections, with proper
+transitions. Additionally, the review of previous works, especially
+web based works is lacking. The author provides several references,
+but unfortunately says very little about them and their
+significance. This is especially important because the topic is likely
+to be unique and a good review would be beneficial for readers who may
+not be familiar with the history of these languages and how Vivace
+differs in a meaningful way.
+
+Page 4: "Another difference is the unconcern to be a Turing-complete
+language. This made the design of Vivace more flexible and closer to
+the musical process rather than the computing process" [Reviewer: The
+author must provide some kind of argument or reference for why a lack
+of Turing completion is directly correlated to flexibility, or that
+musical and computing processes are necessarily opposed to each
+other. The author should reconsider this point otherwise.]
+
+Page 4: "It is natural to musicians (and, as we experienced during
+performances, also to non-musicians) to understand a sequence of
+notes, or audio parameters, repeating over and over again, than a
+for-loop and if-chains." This is exactly the kind of claim that could
+be better made with a user or audience evaluation (especially
+comparative). Without such an evaluation, or reference to previous
+work, such a claim is conjecture only.
+
+Page 5: the "Hello World" program is not a "Hello World" program
+unless the video that's being played actually says "Hello World". The
+author should simply state it as a simple program.
+
+Page 6: the list comprehension code is confusing:
+
+foo.pos = [1/i+1 for i in [1, 2, 3]]
+# result is [2, 3, 4]
+
+I would think the result would be [2, 1.5, 1.33333333] not [2, 3, 4]
+because of the "1 /" component. Perhaps you're only referring to the
+values for "i+1", but that is an ambiguous explanation if
+so. Otherwise if this is not the case an explanation for why it does
+not resolve to [2, 1.5, 1.3333333] must be provided otherwise the
+comment needs to be corrected. Also, does Vivace have operator
+precedence? For instance will * resolve before + in an expression?
+This would be useful information to provide.
+
+Page 7: "Along these advantages, it is important to note: every live
+coding language built on the Web runs everywhere a browser is
+installed." [Reviewer: This is just not true. Web audio, for example,
+only works in some browsers. Also, consideration for the differences
+in JavaScript implementations must be given, and no guarantee can be
+given that new trends in web development and infrastructure won't have
+adverse effects on the portability of these projects. You only need to
+look at the current status of Java applets to see how a web technology
+can be massively deprecated.]
+
+Page 7: "No firewall chain to bypass for OSC, no software installation
+and configuration, no dependencies, people just need to type an URL."
+While this statement may be true, the author provides no references
+for why it is so. Some explanation for the issues presented by using
+OSC and why a framework like ShareJS does not suffer from those same
+problems must be provided.
+
+Page 7: "Before the Web Audio API, the only way to create sound in web
+pages was using plug-ins." Needs a reference and some expounding.
+
+Page 7: "Every functionality is implemented as native code (in C++ and
+Assembly when appropriate) to guarantee maximum performance." This
+might confuse readers, the author should clarify that web audio is
+accessible via javascript, but that it is implemented in a browser via
+C++.
+
+Page 8: "This kind of interface is more familiar to musicians,
+resembling a real mixer, and enables an adequate treatment of voice
+timbre and spacialization of the sound source..." This claim is weak
+without any evaluation.
+
+Page 9: "Figure 3. Every audio unit parameter can be manipulated by
+code or using the UI." The figure clearly display a GUI, but this
+point is completely glossed over. Why would a user prefer to code over
+using the GUI widgets. Are there any advantages to this approach
+(Again, an evaluation would be valuable here). If a user is only
+changing parameters, is this live coding?
+
+Page 9: "A freak coder decides what he is going to do and amplifies
+his own comprehension of the computer capacity as an instrument."
+[Reviewer: The author should use gender neutral pronouns in these
+statements, especially if they intend for the statement to cover
+'freak coders' outside of the author's ensemble who may or may not be
+male.]
+
+The entire section on "Freak Coding" lacks clarity and makes many
+whimsical assertions without any justification. Allegorical language
+isn't necessarily bad, but it needs it to be accompanied by more
+concrete claims and data/proof/references/evaluations/etc... which is
+completely missing here. For example:
+
+	"The freak coding is “rock and roll”. The freak coder becomes
+	Jerry Lee of technology making “techno-pyrophagy”. He codes
+	and cheers at same time. The freak coder seduces through the
+	computer screen and by the way he codes." [Reviewer: This
+	language makes sense in a manifesto. However in a journal
+	article it's out of place.]
+
+Furthermore, the entire section makes a weak claim that "Freak Coding"
+is unique, providing no comparison to previous works and performances
+and provides only vague criticisms of "scholarly" performers. A much
+stronger case would use specific performances with an evaluation as
+well as references to existing literatures. Additionally, has anyone
+but the author's ensemble used the moniker "Freak Coding"? If not,
+it's difficult to make the claim that it is an entire sub-genre in and
+of itself. If they have, the author must provide that information.
+
+
+More broadly: The author's language is clearly designed with
+simplicity in mind. The author states that this is to benefit the
+audience, making the performance easier to appreciate. The referenced
+TOPLAP manifesto states
+
+	"It is not necessary for a lay audience to understand the code
+	to appreciate it, much as it is not necessary to know how to
+	play guitar in order to appreciate watching a guitar
+	performance."
+
+How does the author reconcile this point? A clearer argument for the
+use of a simple syntax must be provided.
+
+As well, Vivace is mainly concerned with data set manipulation. In the
+referenced paper "Live algorithm programming and a temporary
+organisation for its promotion." (Ward, A., J. Rohrhuber, F. Olofsson,
+A. McLean, D. Griffiths, N. Collins, and A. Alexander. 2004) the
+authors state: "Whilst one might alter the data set, it is the
+modification of the instructions and control flow of processes
+themselves that contributes the most exciting action of the medium."
+The author should consider giving a justification for focusing on such
+a small amount of expression, when established practitioners consider
+other approaches to be more exciting.
+
+
+
+Reviewer 2:
+
+
+__ Is the subject matter and presentation appropriate for Computer
+Music Journal?
+Subject matter:YES
+Presentation: MAYBE
+
+...
+__ Does the paper meet its stated goals; are they meaningful for the material?
+SOMEWHAT
+
+...
+__ Are the idea presented clearly; is the presentation well organized?
+NOT_REALLY
+
+The organisation is OK but not great (see comments to authors). The
+set of material to be covered is reasonable. The ideas are not clear -
+partly due to English usage. Some of the ideas such as "freak coding"
+are quite deep and hence difficult to articulate.
+
+...
+__ Have the authors ignored significant work or contradictory results?
+KIND_OF
+
+Freeman's LOLC seems highly relevant it shares aspects such as
+transformation of sequences, and data sharing (although not exactly
+the same kind of collaboration).
+
+Robert Shelton published research on collaborative live coding
+(multiple people using a shared text buffer) that isn't referenced.
+
+Most related work is ignored to the extent that even if it is cited is
+relevance/relation is rarely discussed or analysed except in the most
+superficial terms.
+
+...
+__ What (if any) material should be added or deleted to improve this manuscript?
+
+There are a few fluffy paragraphs that say nothing but mostly the
+material is OK. For example, third-last paragaph doesn't say much. The
+Freak-coding section probably needs to be simplified. It seems a bit
+long. The description of the Vivace syntax and environment needs to be
+made clearer but not necessarily longer (the bullet point list is a
+problem).
+
+...
+__ Does the paper require any additional audio and/or video material
+in order to be evaluated by you or understood by readers?
+
+In its current form it is difficult to get an exact picture of the
+detailed capabilities of the Vivace live coding language. A video or
+more code examples would help. But really I think the paper needs to
+work harder to make everything clear.
+
+...
+As a summary, would you say that the article should:
+
+...
+__ be published as is in Computer Music Journal
+DEFINITELY NOT AS-IS
+
+...
+__ be published as is somewhere else (recommend another medium if possible)
+
+as-is it might be acceptable to ICMC or NIME paper although the
+language would need to be cleaned up and all of my criticisms would
+stand.
+
+I'm not sure I would have understood the "freak coder" section if I
+hadn't spent so much time on the review -- so it probably needs work.
+
+...
+__ be published in Computer Music Journal with minor revisions (as specified)
+NO
+
+...
+__ be published in Computer Music Journal after significant rewriting
+(as specified)
+
+MAYBE
+
+It would need significant re-work on the English, plust the suggested
+improvements and even then there would be questions about whether it
+says enough to be a journal paper (more on that below in additional
+comments.)
+
+...
+__ not be published in its present form (please state primary reasons)
+
+DO NOT PUBLISH IN PRESENT FORM
+
+primary reasons:
+	- Poor use of English
+	- Some sections need clarification 
+	- Some structural editing required
+		
+See comments for authors below for details
+
+
+I enjoyed reading about Vivace and about what's going on in Brazil. I
+think the emerging field of web-live-coding is interesting and
+important, and Vivace is a valuable contribution here: both because of
+the use of collaborative editing, . I also found the description of
+"freak coding" to be an interesting contribution.
+
+The paper is an overview of the Vivace project including:
+
+- a high level description of the system
+- a description of the performance practice including an analysis of
+  audience engagement and ideology of the freak coder
+
+* The system is interesting because of its employment of web
+  technologies. The details of this are noted but not captured cleanly
+  in one section. Related work in web-live-coding is cited but not
+  surveyed in detail. This would help.
+
+* The paper presents a model of performer engagement called the "freak
+  coder". This is an interesting and important idea and highlights the
+  nature of collaborative live coding (working on a shared document)
+  as a kind of collaborative game. "Live coding is seen as a
+  behavioral de-alienation of a digital artist." As-is this section
+  seems too long -- the authors should probably relate this to other
+  kinds of improvised practice. Perhaps maybe look at things like
+  "Theses on liveness" by John CROFT and related material to ground
+  this is some kind of performance discourse -- I don't actually know
+  enough about performance practice to advise on this -- but it is
+  clear to me that the "freak coder" idea is an important part of the
+  paper, but it isn't very well communicated. Perhaps you could
+  explain the ideas behind all this better: maybe focusing on the
+  collaborative game/sport-like nature of the performances rather than
+  focusing on the individual "Freak coder" so much.
+
+* Content-wise this is a project report paper for a conference like
+  NIME or ICMC, but I don't feel that it goes into enough depth to be
+  a journal article in its current form. I think there is potential to
+  develop this depth (more deep analysis of web live coding, clearer
+  and deeper presentation of declarative language use, grounded
+  analysis of freak coding making reference to other people's writing
+  about live coding performance practice). Right now none of that is
+  present, which is fine for a "project report" but I think a journal
+  article needs to show not only that you have thought of these ideas,
+  but that you have investigated them deeply in research and come out
+  the other side with some reflective analysis.
+
+* the paper does not describe the sytem in depth. especially it
+  doesn't give a good feeling for what it is like to use the system
+  (from a coder's perspective) or the exact scope of the systems
+  functions. Maybe some tables or diagrams could help explain the
+  different facets of the system and the capabilities with regard to
+  each facet.
+
+* I found it difficult to follow the details of the language
+  specification section.
+
+* the code examples were fragmentary and didn't give a good sense of
+  what it's like to use the language. the paper would benefit from a
+  walk through of an a example live coding session and/or a more
+  structured breakdown of features and usage idioms.
+
+* the paper is written in an unidiomatic style of English. There are a
+  number of completely ungrammatical sentences (see below) and most of
+  the language is difficult to parse (although rarely difficult to
+  understand). Much of this needs to be edited/re-written to meet CMJ
+  standards.
+
+* The section headings don't parse very well
+
+* The paper makes some interesting points about emerging "web
+  livecoding" paradigm but doesn't say enough to provide a reference
+  point to this work.
+
+* Only describes one system and doesn't provide significant analysis
+  or relation to other systems.
+
+* The paper uses citations a lot to name other related work, but it
+  doesn't provide much reflection on its relation to the other
+  work. This style of brief summary citation is common in 4-page
+  conference papers where space is at a premium, however I think in a
+  journal paper you need to work harder to show and analysis the
+  relationship with your references. For example the paper lists a
+  bunch of other web live coding languages but doesn't say *anything*
+  about them, what they are, how they are the same or different etc.
+
+* The paper lacks an "evaluation" section or any kind of reflective
+  assessment of Vivace's success or failures. The "freak coding"
+  section provides good reflection on performance practice, and this
+  is very helpful, but I think tying things back to Vivace in more
+  detail could be helpful to close the loop.
+
+==========================================================
+Misc Feedback for the Authors
+==========================================================
+
+The structure of the paper is OK although as noted below, a few
+significant details seem to get lost as minor asides in sections that
+are mainly about something else. It might be better to move some of
+this conent into its own sections (eg (1) a section on Web
+technologies could reflect on Web as platform for live coding and also
+review the other live coding environments in this family -- plus any
+other reflections relating to this (2) the description of the
+parameter editing GUI should be earlier rather than in the section on
+implementation)
+
+Might be worth mentioning that this is an Audio-Visual live coding
+language in the opening sentence of the abstract.
+
+Overall the paper needs work to make the writing clear. Multiple
+problems with grammar. For example: in first paragraph of page
+1. "quite untouched in Brazil", "to create the music they were
+listening." problems continue on page 2 "this contributed with larger
+musical arcs."  on page 3 "were tightly relevant to the development of
+Vivace as well and we are planning to rewrite some of their
+components", page 4 "Another difference is the unconcern to be a
+Turing-complete language." Page 9 "Vivace as a tool enables
+interaction while everyone could use their own creativity."
+
+Description of Vivace language is unstructured and unclear. It's
+difficult to get a real sense of how the language is used from the
+description. See comments about bullet points below.
+
+Take a look at Freeman and Troyer's LOLC article in CMJ 35:2. Notice
+the level of detail. I don't expect scientific/academic focus from a
+non-academic project, but I do expect a similar level of detail,
+clarity and analysis of the things that are important to Vivace and
+Freak Coding.
+
+Robert Shelton did a bunch of reasearch on using collaborative editors
+for live coding:
+
+Shelton, R. J. (2011). A lock-free environment for computer music:
+concurrent components for computer supported cooperative work. PhD
+thesis, Engineering, Computer Science and Software Engineering, The
+University of Melbourne
+
+You can get it by searching here:
+http://www.lib.unimelb.edu.au/eprints/ I think he wrote some
+conference papers about this too.
+
+
+==========================================================
+Summary of the paper with some notes for the authors (FOR AUTHORS)
+==========================================================
+
+Abstract
+=======
+
+* paper's stated aims are to:
+
+1. describe the principles and design of Vivace (a live coding
+environment based on web technlogies and designed for use in a web
+browser)
+		
+2. reviews motivations and inspirations for the language "in the
+context of actual performances" (awkward wording of second bit)
+		
+3. "specifications" of the language including how it is parsed, and
+how it is executed using W3C Web Audio.
+		
+4. Briefly discusses why the Web is of interest as a live coding
+environment, and how that affects performances.
+		
+5. Describes how Vivace motivated "freak coding" -- an approach to
+improvised live coding engagement.
+
+The heading structure is as follows:
+	- Abstract
+	- Intro / First (unnamed) Section
+	
+	- Additional motivation & inspiration: arrange the room, the code is dirty
+		=> this is essentially "Related work"
+		
+	- The language (specification) we all speak
+	- Vivace audio and video engine
+	- Into the wild: the rise of freak coding makes it collaborative
+	- Conclusions and future work
+
+Each section is summarized and analyzed below. (sections marked * are
+summary, other paragraphs are comments/feedback for the authors)
+
+
+Intro / First (unnamed) Section
+=======================
+
+* First live coding performance in Brazil (November 2011) using ChucK
+and Puredata: => ChucKist #1edited lists of numerical parameters
+rather than editing program structure, ChucKist? #2 was creating
+"fluid lines", PDist was mixing audio using camera tracking. Also
+""“cowsay” generated phrases"" and bouncing balls.
+
+This description doesn't give a good idea about what the second live
+coder was actually doing: "The other live coder focused on more fluid
+lines with large sounds having evolving characteristics; this
+contributed with larger musical arcs."  Was the second coder also
+using ChucK? Also since you haven't described the musical/sonic
+results of the ChucKist it's hard to imagine the musical scene.
+
+The description of ""“cowsay” generated phrases"" is unclear to
+someone who doesn't know what this is. The remainder of the paragraph
+from "Other visual resources..." is garbled and doesn't make much
+sense.
+
+
+* The described performance lead to the creation of Vivace (works in
+  Chrome and Safari). Vivace has been iteratively refined and extended
+  as a result of subsequent performances.
+
+* Remainder of paper has "circular structure": performances motiated
+  the language <=> language motivated performance practice motivated
+  <=> "freak coding" <=> (loop)
+
+
+Additional motivation & inspiration: arrange the room, the code is dirty
+=====================================================
+aka Related Work
+
+* Inspirations/borrowed elements:
+	1. Desktop livecoding: ixi lang (syntax), ABT, FIGGUS, ChucK
+	(chained ugens linked by "=>"), Fluxus (code shown on top of
+	video frames).
+
+	2. Web live coding family: Gibber, livecoder, livecoding.io,
+	livecodelab et al.
+	
+Note that from this section it is clear that web live coding is
+emerging as a practice. This could be mentioned in the introduction
+and there could be a more in-depth survey of web live coding systems,
+their properties and differences. As it stands the paper only cites
+web live coding systems without explaining them.
+	
+* Points of difference between Vivace and other web live coding systems:
+	1. Uses collaborative real-time text editing (in the style of etherpad)
+	2. Not concerned with being Turing-complete (making it "more
+	flexible and closer to the musical process rather than the
+	computing process")
+
+The paper asserts but does not explain or provide any justification
+for why not being concerned with Turing-completeness makes it "more
+flexible".
+
+Problematic assertion:
+
+"Vivace tries to place itself between the precision of code and the
+flexibility of artistic expression."
+
+Some would argue that the precision of code affords flexibility of
+artistic expression.
+
+
+The language (specification) we all speak
+================================
+
+* This section presents an overview of the Vivace environment, syntax
+  and implementation technologies. It also includes some reflection
+  about the benefits of developing and using web technologies for live
+  coding.
+
+* Vivace is a collaborative live coding environment with simple
+  syntax, mnemonic operations, audio mixing, template editing and
+  parameter automation.
+
+* Shared (collaborative) code, and visual imagery create a more
+  complex artistic scenario where compiled code can become
+  inconsistent
+
+* Vivace uses declarative specification based on audio track
+  paradigm. (it is not imperative)
+
+* A bullet list outlines the main principles and domain entities
+
+This is not a very helpful way to present the domain model. The bullet
+list is flat but the entities relate to each other.  A UML diagram or
+some other form of explanation might be better.
+
+* declarative syntax makes heavy use of "sequences" (array
+  declarations) that can have transformation operators applied to
+  them.
+
+* Vivace was written in Javascript using Jison parser
+  generator. ShareJS was used to make the shared concurrent editor.
+
+ * There is a section of citation spam here regarding requirement for
+   fast prototyped UI. "experiment those new languages with fast
+   prototyped UI"
+
+* Brief mention of benefits of web live coding: No firewalls, OSC NAT
+  traversal, software installation and configuration, dependencies
+
+These last two points could maybe better be discussed in related work
+or in the introduction?
+
+
+Vivace audio and video engine
+========================
+
+* Description of W3C Web Audio graphs. Graphs of AudioNodes for
+  mixing, filtering, audio effects etc.
+
+The correct term is "unit generator graph" not "audio unit graph". An
+Audio Unit is a specific Apple technology.  In the text I think "unit
+generator" should be used where possible and AudioNode (the W3C term)
+should be used when specifically referring to the implementation.
+
+* Vivace doesn't give direct access to graphs. Just gives "voices"
+  which are pre-built chains. Users can modify the AudioNode's
+  parameters though.
+
+* AudioNode parameters can be edited in code or using sliders on a
+  GUI.
+
+The added ability to use code OR GUI sliders seems important enough
+that it should have been described earlier in the article when the
+live coding editor is being discussed.
+
+* Video is also supported using the same parameter system. (mentioned
+  in a 2 line paragraph).
+
+The video capabilities aren't clear. Is there any video processing?
+Exactly what can be manipulated in-real-time?
+
+
+Into the wild: the rise of freak coding makes it collaborative
+===========================================
+
+* This section paints a colourful picture of the way Vivace has been
+  used in performance by "freak coders". It describes the mode of
+  performance and some of the content used.
+
+* Performers engage with the collaborative Vivace environment more
+  like engaging with a collective game than a musical performance
+  mediated by a score. These are the "freak coders" ""someone that
+  adds his individuality up to others aiming to transform the computer
+  into an instrument of artistic fruition without restricting to
+  himself the control of the machine but inviting everyone to join him
+  in the same activity.""
+
+It is not exactly clear what the first paragraph of this section
+means. It is very abstract. Figure 4 does help to give an idea.
+
+* "Live coding is seen as a behavioral de-alienation of a digital
+  artist."
+
+* Description of AVAV performance without rehearsal -- ie improvised
+  live coding.
+
+This descrption should be a new paragraph I think.
+
+* playful collaboration both between performances and with audience
+  (and computer + Vivace)
+
+* Use of popular media content (eg from popular TV) to engage with
+  audience.
+
+* Contextualises within Brazilian free software movement, with the
+  open and continuous transmission of what is known. Subverts
+  technocratic computer use. anti-professional posture.
+
+This section could benefit from making reference to the broader
+discussion in live coding performance practice. What have other people
+written about this? What do you think about that? What differences and
+similarities do you see?
+
+
+
+Conclusions and future work
+======================
+
+This section intermingles conclusions and future work. 
+
+* A summary of what Vivace is and what motivated its development
+
+* Summary of benefits of Web Technologies
+
+* Description of new Vivace-based project Carnival
+
+Carnival is introduced -- but this almost seems like something that
+would be better in a "current and future directions" section than
+buried in the conclusions.
+
+* List of improvements planned.
+
+
