@@ -55,12 +55,12 @@
 
 \begin{abstract}
 Live coding is a performance and creative technique based on improvised and interactive coding.
-Many recent endeavors have focused in livecoding both because of aesthetics
+Many recent endeavors have focused in live coding both because of aesthetics
 and as a way to alleviate performance drawbacks when the musical instrument is a computer.
 This paper describes the principles and the design of Vivace, a live
 coding language and environment built with Web technologies to be
 executed on web browsers.
-The approach is striking by 1) allowing many performers to code simultaneously;
+The approach is compelling by 1) allowing many performers to code simultaneously;
 2) the synthesis of audio and video;
 3) a very simple syntax;
 4) being a multiplatform software.
@@ -77,15 +77,15 @@ of historical and usage summaries including a live coding sub-genre.
 % coding sub-genre.
 \end{abstract}
 
-\section{Introduction} % Introdução, sem título.
+\section{Introduction}
 Live coding is an artistic performance and creative technique
-based upon writing software code in a live and improvised manner~\cite{lc1}.
+based upon writing software code in a live and improvised manner~\cite{nilson2007live}.
 It can be used to generate e.g. sound, images, video, lights and poetry
-although it is prevalent in computer music~\cite{lc2}.
+although it is prevalent in computer music~\cite{eff}.
 Most often, the code is continually changed and projected in a large surface as a way to
-make it visible to the audience~\cite{lc3}.
+make it visible to the audience~\cite{collins2011live}.
 The usage of live coding in non-performative contexts is also reported,
-such as in sound design and art installations~\cite{lcN}.
+such as in sound design and art installations~\cite{eff}.
 In this paper, we describe Vivace, a live coding language and platform.
 It emerged from pragmatic and aesthetic needs, as described in the following sections.
 The software is cross-platform because it is based on web technologies,
@@ -95,9 +95,9 @@ Vivace to be achieved: the simultaneous writing of the code by many performers
 and the audience.
 
 In summary, this paper describes how
-a number of artistic presentations motivated the language and platform,
+a number of artistic presentations motivated the creation of the language and platform,
 describes the Vivace language and platform and how this endeavor
-lead to the creation of a live coding sub-genre
+lead to the emergence of a live coding sub-genre
 called ``freak coding'' (e.g. by its manifesto~\cite{freak} and related artists).
 
 \section{A historical outline} % Introdução, sem título.
@@ -107,7 +107,7 @@ for a wide audience. Its performers used two instances of
 ChucK~\cite{wang2003chuck} and a dedicated mixing instance composed by Puredata and an analog
 mixer
 ~\footnote{Pictures of the presentation available at
-  \url{Removed for anonymization as requested by SBCM.}}.
+  (Removed for anonymization as requested by SBCM).}.
 %  \url{http://www.flickr.com/photos/festivalcontato/6436260557}}.
   Live coding had been gaining world wide popularity~\cite{nilson2007live,
   collins2003live, brown2007a, collins2011live}, while remaining quite
@@ -117,7 +117,7 @@ was the first live coding performance in our country with such a wide audience -
 attendees were in the gathering where code was used on-the-fly to
 create the music they were listening.
 At the same time, two live coding desktop work-spaces were projected on large screens to the
-public, following the principles from the \textsc{toplap} manifesto~\cite{ward2004live}.
+public, following the principles of the \textsc{toplap} manifesto~\cite{ward2004live}.
 
 During the performance, the trio used ChucK in an unconventional
 way. Instead of writing loops and conditionals, one of the live coders
@@ -173,8 +173,8 @@ environment where the code is shown on top of the video frames.
 
 \begin{figure*}[htpb]
   \begin{center}
-    \includegraphics[scale=.4]{img/fig_vivace_.png}
-    \caption{The Vivace environment.}
+    \includegraphics[scale=.35]{img/fig_vivace_.png}
+    \caption{The Vivace platform basic interface: video playback is in the background while the code is in the foreground and controls both video and musical audio. The interface is accessed as a usual HTML page in a web browser.}
     \label{fig:vivace}
   \end{center}
 \end{figure*}
@@ -219,7 +219,7 @@ results.
 Vivace is not an imperative language. Instead of routines and
 procedures to control audio attributes, it uses definitions related
 with musical scores and the \emph{track paradigm} common on music
-production software~\cite{track}. It is natural to musicians (and, as we
+production software~\cite{collins2011live}. It is natural to musicians (and, as we
 experienced during performances, also to non-musicians) to understand
 a sequence of notes, or audio parameters, repeating over and over
 again, than for-loops and if-chains. In this way, Vivace is a
@@ -254,8 +254,9 @@ foo.src = youtube('YOUTUBE_URL')
 # defining the video positions
 # (in seconds) to be played
 foo.pos = [10, 20, 35]
-# the durations (as time ratios of a pulse)
-# to be played at each position
+# the durations,
+# as time ratios of a pulse,
+# to be played at each position:
 foo.cdur = [1/2, 1/4, 1/8, 1/16, 1]
 \end{Verbatim}
 
@@ -269,7 +270,7 @@ the Vivace syntax.
 There are extra semantics to operate on the sequences. Every sequence
 accepts operators: mnemonic commands used to reverse, transpose and
 even replace elements of the sequence based on list
-comprehensions. Those operations are common in music composition~\cite{comp} and
+comprehensions. Those operations are common in music composition~\cite{collins2011live} and
 having them as mnemonics makes typing fast and handy for live
 coding. The next listing presents the standard operators:
 
@@ -342,17 +343,17 @@ equalization filter, and reverb time control.
 \begin{figure}[htpb]
   \begin{center}
     \includegraphics[scale=.5]{img/fig_chain_.png}
-    \caption{Standard audio unit chains as Web Audio API objects for
-      each Vivace voice.}
+    \caption{Standard audio processing units are directly related to Web Audio API objects for
+      each voice within Vivace.}
     \label{fig:chain}
   \end{center}
 \end{figure}
 
 \begin{figure*}[htpb]
   \begin{center}
-    \includegraphics[scale=.4]{img/fig_ui_.png}
+    \includegraphics[scale=.3]{img/fig_ui_.png}
     \caption{Every audio unit parameter can be manipulated by code or
-      using the UI.}
+      using the UI in the Vivace platform.}
     \label{fig:ui}
   \end{center}
 \end{figure*}
@@ -389,8 +390,8 @@ specialists alike to join in.
 \begin{figure}[htpb]
   \begin{center}
     \includegraphics[scale=.2]{img/fig_freakcoder_.png}
-    \caption{Freak coder: a live coder who, together with others, uses
-      popular and freak media to gain audience attention to the shared
+    \caption{Freak coder: a live coder who uses
+      popular and ``freak'' media to boost the attention of the audience to the shared
       code.}
     \label{fig:freakcoder}
   \end{center}
@@ -458,8 +459,8 @@ they see every day on their TV sets. Since then, the use of popular and
   \begin{center}
     \includegraphics[scale=.3]{img/fig_novela_.png}
     \caption{Videos sampled from popular Brazilian novels and B-movies
-      were used as material: extreme pop-art as artifact to attract
-      wider audience attention to the code.}
+      were used as material to attract the attention of the audience to the code
+	  in the ``freak-coding'' aesthetics and live coding sub-genre.}
     \label{fig:novela}
   \end{center}
 \end{figure*}
@@ -530,7 +531,7 @@ inspirational and flexible. Nevertheless, we continue to search for
 improvements on Vivace -- and others derived tools -- to increase an
 already consolidated objective of live coding as a musical practice:
 make computer music performance more human, more interactive with the
-wider audience~\cite{hum}.
+wider audience~\cite{collins2011live}.
 
 Future improvements are planned on Vivace: the possibility to
 explicitly define large musical arcs as nested sequences related to
@@ -542,11 +543,20 @@ artistic style (a sub-genre of live coding) will be explored more deeply on futu
 regarding its aesthetics -- and in already planned performances.
 
 We want to end by underlining the importance of social aspects
-regarding live coding. The authors, although working on the same
-collective, were not working close to each other since the creation of
-Vivace and the rise of freak coding. The performances were provided by
-the union of those artists. Their union created their own tools and
-influenced their own attitude. And the circle starts again.
+regarding live coding. The authors
+were not working physically close to each other since the beginning,
+i.e. since the creation of
+Vivace and the rise of freak coding. The performances emerged from
+the gathering of the artists and programmers,
+which gave rise to new tools and
+aesthetics.
+On the other hand,
+given the continuous audiovisual feedback the audience and performers
+have from the code,
+we noticed that the potential of live coding for
+computer programming demystification and introduction
+is often emphasized by enthusiasts and the literature~\cite{eff}.
+
 
 \bibliographystyle{unsrt}
 % \bibliography{example}
