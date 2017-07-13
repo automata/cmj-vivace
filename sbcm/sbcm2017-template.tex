@@ -289,11 +289,11 @@ foo.pos = [1, 2, 3] transpose +2
 # result is [3, 4, 5]
 
 # list comprehension
-foo.pos = [1/i+1 for i in [1, 2, 3]] 
+foo.pos = [i+1 for i in [1, 2, 3]] 
 # result is [2, 3, 4]
 
 # or combine both
-foo.pos=[5/i for i in [1,2,3]] reverse 
+foo.pos=[i+1 for i in [1, 2, 3]] reverse 
 # result is [4, 3, 2] as expected
 \end{Verbatim}
 
@@ -304,8 +304,10 @@ parser. This flexibility to parse and execute new languages as
 JavaScript inside every browser opens a remarkable opportunity to
 experiment with new syntax and semantics for live coding. To make the
 Vivace editor collaborative we used ShareJS~\cite{sharejs} which makes
-Web applications content live concurrent. In this way it is possible
-to share Vivace code with any user accessing a common
+Web applications content live concurrent. ShareJS uses a multiple clients and
+one server network architecture. By running a common server for both
+Vivace Web application and files, it is possible
+to share Vivace code with any client accessing a common
 URL. Furthermore, considering the tradition of UI design and
 development on the Web thanks to HTML and CSS, one can experiment
 those new languages with fast prototyped UI -- a requisite already
