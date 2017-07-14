@@ -18,8 +18,22 @@
 
 \title{Vivace: a collaborative live coding language and platform}
 
-\author{John\inst{1}}
-\address{Universal University}
+\author{Vilson Vieira\inst{1}\and Guilherme Lunhani\and\\ Geraldo Magela de Castro
+  Rocha Junior\and Caleb Mascarenhas Luporini\and\\ Daniel Penalva\and Ricardo
+  Fabbri\inst{2}\and Renato Fabbri\inst{3}}
+\address{The Grid \\
+	Berlin, Germany
+         \nextinstitute
+         Polytechnic Institute -- IPRJ/UERJ \\
+	 Rua Bonfim, 25 - Vila Amélia --
+	 CEP 28625-570, Nova Friburgo, RJ, Brazil
+         \nextinstitute
+	 Visualization, Imaging and Computer Graphics lab --
+         VICG/ICMC/USP \\
+	 Av. Trabalhador São-Carlense, 400 - Centro --
+	 CEP 13566-590, São Carlos, SP, Brazil
+         \email{vilson@void.cc, rfabbri@gmail.com, renato.fabbri@gmail.com}
+}
 % \author{Vilson Vieira\inst{1} \and
 % 	Guilherme Lunhani\inst{2} \and
 % 	Geraldo Magela de Castro Rocha Junior\inst{3} \and\\
@@ -77,7 +91,7 @@ of historical and usage summaries including a live coding sub-genre.
 % coding sub-genre.
 \end{abstract}
 
-\section{Introduction}
+\section{1. Introduction and narrative}
 Live coding is an artistic performance and creative technique
 based upon writing software code in a live and improvised manner~\cite{nilson2007live}.
 It can be used to generate e.g. sound, images, video, lights and poetry
@@ -100,7 +114,7 @@ describes the Vivace language and platform and how this endeavor
 lead to the emergence of a live coding sub-genre
 called ``freak coding'' (e.g. by its manifesto~\cite{freak} and related artists).
 
-\section{A historical outline} % Introdução, sem título.
+\subsection{1.1. A historical outline} % Introdução, sem título.
 In November of 2011, a live coding trio called
 \textit{FooBarBaz}~\cite{foobarbaz} unleashed its first presentation
 for a wide audience. Its performers used two instances of
@@ -159,7 +173,7 @@ environment for Vivace. On every new session performed using Vivace,
 new principles were added into the language and, at the same time,
 into our artistic approach.
 
-\section{Additional motivation \& inspiration: arrange the room, the code is dirty}
+\subsection{1.2. Additional motivation \& inspiration: arrange the room, the code is dirty}
 Vivace is inspired by various live coding languages. The syntax of
 Vivace, as shown in Figure~\ref{fig:vivace}, borrows elements from ixi
 lang~\cite{magnusson2011ixi} such as the use of sequences to control
@@ -208,7 +222,7 @@ characteristic perceived in ixi lang as well). Vivace is designed to
 associate the precision of code and the flexibility of artistic
 expression while maintaining simplicity.
 
-\section{The language (specification) we all speak}
+\section{2. The language (specification) we all speak}
 
 Vivace, as a language~\footnote{The complete specification can be
   found at
@@ -323,7 +337,7 @@ browser is installed. No firewall chain to bypass for OSC, no software
 installation and configuration, no dependencies, people just need to
 type an URL.
 
-\section{Vivace audio and video engine}
+\subsection{2.1. Vivace audio and video engine}
 Before the Web Audio API, the only way to create sound in web pages
 was using plug-ins. Recently, the Web Audio API enabled real time
 audio processing on Web browsers~\footnote{At the time this paper was
@@ -383,7 +397,7 @@ upload files or use YouTube URLs. Videos are treated the same way as
 buffer sources or oscillators, i.e.\ as voices, and can be manipulated
 in real time, making Vivace a live cinema or a VJing tool.
 
-\section{Into the wild: the rise of freak coding makes it collaborative}
+\section{3. Into the wild: the rise of freak coding makes it collaborative}
 Vivace as a tool enables interaction while everyone can use their
 own creativity. The interaction is not mediated by a common score, but
 by a mutual desire to create a composition in real time. In this
@@ -495,7 +509,7 @@ roll''. The freak coder becomes Jerry Lee of technology making
 ``techno-pyrophagy''. He codes and cheers at same time. The freak
 coder seduces through the computer screen and by the way he codes.
 
-\section{Conclusions and future work}
+\section{4. Conclusions and future work}
 Vivace was motivated by actual performances that took place in the
 recently emerging Brazilian live coding scene. The development of the
 language was guided by this direct contact of performers and the wider
